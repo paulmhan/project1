@@ -20,6 +20,6 @@ $(".calculateBMI").on("click",function(){
 
 function recomendedCalories(){
     if(bmi<18.5){
-        recCalories = 
+        recCalories = ''
     }
 }
