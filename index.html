@@ -1,17 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="assets/css/reset.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <title>RecipeSearch</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
-    <script src="assets/js/api.js"></script>
-    <script src="assets/js/bmi.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light" id="header">Hungry? You are at the right place!</nav>
+        <div class="card">
+            <div class="card-header">
+                Choose one or more methods for searching
+            </div>
+            <div class="card-body">
+                <form>
+                    <div class="form-group">
+                        <label><h2>Search what you are starving for...</h2></label>
+                        <input type="text" class="form-control" id="searchTerm">
+
+                    </div>
+                    <div class="form-group">
+                        <label>Diet Labels</label>
+                        <select class="form-control" id ="dietLabels">
+                            <option>Balanced</option>
+                            <option value="1">Balanced</option>
+                            <option value="2">High-Fiber</option>
+                            <option value="3">High-Protein</option>
+                            <option value="1">Low-Carb</option>
+                            <option value="2">Low-Fat</option>
+                            <option value="3">Low-Sodium</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Calories (Optional) Input maximum desired calories per serving. For food database results default serving is 100g.</label>
+                        <input type="text" class="form-control" id ="calories">
+                    </div>
+                    
+                    <input id="search" type="submit" value="Search">
+                    <button type="button" class="btn btn-light">Clear Results</button>
+                </form>
+            </div>
+            <h2>Recipe search results</h2>
+            
+            <table class="table">
+              <thead>
+                <tr>
+                  <!-- The scope attribute specifies that this is a header for a column -->
+                  <th scope="col">Image</th>
+                  <th scope="col">Qty</th>
+                  <th scope="col">Unit</th>
+                  <th scope="col">Title</th>
+                  <th scope="col">Energy</th>
+                  <th scope="col">Nutrients</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Image</td>
+                  <td>6</td>
+                  <td>servings</td>
+                  <td>Tomato Gravy</td>
+                  <td>1062 kcal</td>
+                  <td>
+                      <li>Protein: 16g</li>
+                      <li>Fat: 87g</li>
+                      <li>Carbs: 56g</li>
+                  </td>
+                </tr>
+                <!-- Insert additional movie rows here -->
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+        
+        <div class="container">
+            
+       
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script src="./script.js"></script>
+
 </body>
+
 </html>
