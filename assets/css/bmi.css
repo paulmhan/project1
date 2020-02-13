@@ -1,9 +1,30 @@
+.header {
+    width: 100%;
+    background-color: red;
+    height: 30px;
+}
+
+.container {
+    width: 100%;
+    background-color: #ffcc33;
+    margin: auto;
+    height:100%
+}
+
 .bmi{
     width:30%;
+    float:left;
+    height: 100%;
+    border: 1px solid black; 
+
 }
 
 .food-diary{
-    width:70%;
+    width: 70%;
+    float: left;
+    height: 100%;
+    border: 1px solid black;
+
 }
 
 .inputBMI{
@@ -11,8 +32,34 @@
     
 }
 
+#weight{
+    text-align:center;
+}
+
+#feet{
+    text-align:center;
+}
+
+#inches{
+    text-align:center;
+}
+
 .infoBMI{
     text-align:center;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size:20px;
+}
+
+.yourBMI{
+    font-size:50px;
+}
+
+h1{
+    font-size:40px;
+    text-align: center;
+
+}
+
+h2{
+    font-size: 20px;
 }
