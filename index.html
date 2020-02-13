@@ -7,39 +7,40 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>RecipeSearch</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
     <div class="container">
         <nav class="nav-wrapper" id="header">Hungry? You are at the right place!</nav>
         <div class="card">
-            <div class="card-header">
+            <div class="card-title">
                 Choose one or more methods for searching
             </div>
-            <div class="card-body">
+            <div class="card-content">
                 <form>
-                    <div class="form-group">
-                        <label><h2>Search what you are starving for...</h2></label>
-                        <input type="text" class="form-control" id="searchTerm">
+                    <div class="input-field">
+                        <!-- <label><h2>Search what you are starving for...</h2></label> -->
+                        <input type="text" class="form-control" id="searchTerm" placeholder="Search what you are starving for...">
 
                     </div>
-                    <div class="form-group">
-                        <label>Diet Labels</label>
-                        <select class="form-control" id ="dietLabels">
-                            <option>Balanced</option>
-                            <option value="1">Balanced</option>
-                            <option value="2">High-Fiber</option>
-                            <option value="3">High-Protein</option>
-                            <option value="1">Low-Carb</option>
-                            <option value="2">Low-Fat</option>
-                            <option value="3">Low-Sodium</option>
+
+                    <div class="input-field">
+                        <select multiple id="multi">
+                          <option value="" disabled selected>Choose your diet</option>
+                          <option value="1">Balanced</option>
+                          <option value="2">High-Fiber</option>
+                          <option value="3">High-Protein</option>
+                          <option value="4">Low-Carb</option>
+                          <option value="5">Low-Fat</option>
+                          <option value="6">Low-Sodium</option>
                         </select>
-                    </div>
+                        <label>Diet Options:</label>
+                      </div>
 
-                    <div class="form-group">
-                        <label>Calories (Optional) Input maximum desired calories per serving. For food database results default serving is 100g.</label>
-                        <input type="text" class="form-control" id ="calories">
+                    <div class="input-field">
+                        <!-- <label>Calories (Optional) Input maximum desired calories per serving. For food database results default serving is 100g.</label> -->
+                        <input type="text" class="form-control" id ="calories" placeholder="Calories (Optional) Input maximum desired calories per serving. For food database results default serving is 100g.">
                     </div>
                     
                     <input id="search" type="submit" value="Search">
@@ -92,7 +93,7 @@
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="./script.js"></script>
+    <script src="./assets/js/api.js"></script>
 
 </body>
 

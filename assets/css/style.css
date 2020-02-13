@@ -1,5 +1,5 @@
 body {
-    background-image: url("./Images/kitchen.jpg");
+    background-image: url("../images/kitchen.jpg");
     background-size: 100% 100%;
 }
 
@@ -10,7 +10,8 @@ body {
     font-weight: bold;
     margin-bottom: 20px;
     background-color:none;
-    color: tomato;
+    /* color: tomato; */
+    color: black;
 }
 #articles {
     margin-top: 20px;
