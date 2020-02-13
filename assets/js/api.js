@@ -39,25 +39,25 @@ let search = $("#search");
 //   search.on("click", function (event) {
 //     event.preventDefault();
 //     let searchKey = searchTerm.val().trim();
-//     console.log(searchKey);
-    queryURL = `https://api.edamam.com/search?q=chicken&app_id=84612d9d&app_key=a9ac302b044be5faf802625e3e3dbf9a`;
-    $.ajax({
-      url: queryURL,
-      method: "GET"
-    }).then(function (response) {
-      console.log(response);
-      console.log(response.hits.length);
-      for (let i = 0; i < response.hits.length; i++) {
-        console.log(response.hits[i].recipe.label);
-        console.log(response.hits[i].recipe.shareAs);
-        // createRow(response);
-      }
-    });
-    search.on("click", function (event) {
-      event.preventDefault();
-      let searchKey = searchTerm.val().trim();
-      console.log(searchKey);
-      // searchRecipe(searchKey);
+// //     console.log(searchKey);
+//     queryURL = `https://api.edamam.com/search?q=chicken&app_id=84612d9d&app_key=a9ac302b044be5faf802625e3e3dbf9a`;
+//     $.ajax({
+//       url: queryURL,
+//       method: "GET"
+//     }).then(function (response) {
+//       console.log(response);
+//       console.log(response.hits.length);
+//       for (let i = 0; i < response.hits.length; i++) {
+//         console.log(response.hits[i].recipe.label);
+//         console.log(response.hits[i].recipe.shareAs);
+//         // createRow(response);
+//       }
+//     });
+//     search.on("click", function (event) {
+//       event.preventDefault();
+//       let searchKey = searchTerm.val().trim();
+//       console.log(searchKey);
+//       // searchRecipe(searchKey);
 
-    })
+//     })
   
