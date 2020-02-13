@@ -3,3 +3,7 @@
     color: red;
 };
 
+body {
+    background-image: url("assets/images/background-placeholder");
+}
+
