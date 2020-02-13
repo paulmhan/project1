@@ -1,5 +1,6 @@
 $(document).ready(function(){
   $('#multi').formSelect();
+  $('#multi2').formSelect();
   let searchTerm = $("#searchTerm");
   let dietLabels = $("#dietLabels");
   let calories = $("#calories");
