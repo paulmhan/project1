@@ -1,0 +1,18 @@
+.bmi{
+    width:30%;
+}
+
+.food-diary{
+    width:70%;
+}
+
+.inputBMI{
+    text-align:center;
+    
+}
+
+.infoBMI{
+    text-align:center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size:20px;
+}

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,12 +8,45 @@
     <title>BMI Calculator</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="assets/css/reset.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/bmi.css">
 </head>
+
 <body>
-    <input>Weight</input>
+    <div class="bmi">
+        <div class="inputBMI">
+            Weight (lbs):<br>
+            <input type="text" name="weight" id="weight">
+            Height (Feet):<br>
+            <input type="text" name="feet" id="feet">
+            Height (Inches):<br>
+            <input type="text" name="inches" id="inches">
+            <br>
+            <button class="calculateBMI">
+                Get Your BMI
+            </button>
+            <br>
+            <br>
+            <div class="yourBMI">
+
+            </div>
+        </div>
+        <div class="infoBMI">
+            <h3>BMI Categories:</h3>
+            <p>Underweight = 18.5 or lower<br>
+                Overweight = 25–29.9<br>
+                Obesity = 30 or greater</p>
+        </div>
+    </div>
+    <div class="food-diary"></div>
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="assets/js/api.js"></script>
     <script src="assets/js/bmi.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
+
 </html>
