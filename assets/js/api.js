@@ -1,5 +1,4 @@
 
-
 let searchTerm = $("#searchTerm");
 let dietLabels = $("#dietLabels");
 let calories = $("#calories");

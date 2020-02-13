@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,12 +8,93 @@
     <title>BMI Calculator</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="assets/css/reset.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/bmi.css">
 </head>
+
 <body>
-    <input>Weight</input>
-    <script src="assets/js/api.js"></script>
-    <script src="assets/js/bmi.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <div class="header"></div>
+
+    <div class="row">
+        <div class="col s4 bmi">
+            <div class="inputBMI">
+                <br>
+                Weight (lbs):<br>
+                <input type="text" name="weight" id="weight">
+                Height (ft):<br>
+                <input type="text" name="feet" id="feet">
+                Height (in):<br>
+                <input type="text" name="inches" id="inches">
+                <br>
+                <button class="calculateBMI">
+                    Get Your BMI
+                </button>
+                <br>
+                <br>
+                <div class="yourBMI">
+
+                </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <div class="infoBMI" style="display:none">
+                <h3>BMI Categories:</h3>
+                <p>Underweight = 18.5 or lower<br>
+                    Overweight = 25–29.9<br>
+                    Obesity = 30 or greater</p>
+            </div>
+        </div>
+        <div class="col s8 food-diary">
+            <h1>Track Your Calories!</h1>
+            <div class="divider"></div>
+            <div class="section">
+                <h2>Breakfast</h2>
+                <ul>Stuff</ul>
+            </div>
+            <div class="divider"></div>
+            <div class="section">
+                <h2>Lunch</h2>
+                <p>Stuff</p>
+            </div>
+            <div class="divider"></div>
+            <div class="section">
+                <h2>Dinner</h2>
+                <p>Stuff</p>
+            </div>
+            <div class="divider"></div>
+            <div class="section">
+                <h2>Snacks</h2>
+                <p>Stuff</p>
+            </div>
+            <div class="divider"></div>
+            <div class="section">
+                <h2>Exercise</h2>
+                <p>Stuff</p>
+            </div>
+
+
+
+
+
+<!-- 
+            <div class="row breakfast">Breakfast</div>
+            <div class="row lunch">Lunch</div>
+            <div class="row dinner">Dinner</div>
+            <div class="row snacks">Snacks</div>
+            <div class="row exercise">Exercise</div> -->
+
+        </div>
+
+
+
+
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script src="assets/js/api.js"></script>
+        <script src="assets/js/bmi.js"></script>
+
+    </div>
 </body>
+
 </html>

@@ -1,4 +1,7 @@
-
+body {
+    background-image: url("../images/kitchen.jpg");
+    background-size: 100% 100%;
+}
 
 #header {
     height: 140px;
