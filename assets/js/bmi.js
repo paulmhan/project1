@@ -4,9 +4,11 @@ let bmi;
 let recCal;
 let calRemaining;
 $("#currentDay").text(moment().format('MMMM Do' + ',' + ' YYYY'));
-
 let foodB;
 let calB;
+// let food;
+// let cal;
+
 
 // renderFoodItems();
 
@@ -41,7 +43,6 @@ $(".calculateBMI").on("click",function(){
         }
         $("#recommended").text(`Your Recommended Calories per Day: ${recCal}`);
         calRemaining = recCal;
-        console.log(calRemaining);
         $("#caloriesLeft").text(`Calories Remaining for Today: ${calRemaining}`);
         }
     })
@@ -58,6 +59,9 @@ $(".calculateBMI").on("click",function(){
         //get value of inputs
         foodB = $("#breakfast").val().trim();
         calB = $("#caloriesB").val().trim();
+        //change input box back into blanks
+        $("#breakfast").val("");
+        $("#caloriesB").val("");
         //makes sure inputs are not blank
         if (foodB === "") {
             displayMessage("Food cannot be blank");
@@ -89,6 +93,43 @@ $(".calculateBMI").on("click",function(){
         ///get items in local storage
         renderFoodItems();
     })
+
+
+    // $(".save").on("click",function(){
+    //     //get value of inputs
+    //     food = $("#food").val().trim();
+    //     cal = $("#calories").val().trim();
+    //     //makes sure inputs are not blank
+    //     if (food === "") {
+    //         displayMessage("Food cannot be blank");
+    //         setTimeout(function(){
+    //             $("#msg").text("");
+    //         }, 1500);
+    //       } else if (cal === "") {
+    //         displayMessage("Calories cannot be blank");
+    //         setTimeout(function(){
+    //             $("#msg").text("");
+    //         }, 1500);
+    //       } else if (isNaN(cal)) {
+    //         displayMessage("Calories must be a number");
+    //         setTimeout(function(){
+    //             $("#msg").text("");
+    //         }, 1500);
+    //       } else {
+    //         displayMessage("Saved successfully");
+    //         setTimeout(function(){
+    //             $("#msg").text("");
+    //         }, 1500);
+    //       }
+    //     // gets value and put into local storage
+    //     localStorage.clear();
+    //     localStorage.setItem(food, cal);
+    //     calRemaining = calRemaining - cal;
+    //     //updates calories remaining
+    //     $("#caloriesLeft").text(`Calories Remaining for Today: ${calRemaining}`);
+    //     ///get items in local storage
+    //     renderFoodItems();
+    // })
 
     function renderFoodItems(){
         for(let key in localStorage) {
