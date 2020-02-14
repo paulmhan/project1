@@ -40,61 +40,98 @@
             <div class="infoBMI" style="display:none">
                 <h3>BMI Categories:</h3>
                 <p>Underweight = 18.5 or lower<br>
+                    Normal weight = 18.6–24.9<br>
                     Overweight = 25–29.9<br>
                     Obesity = 30 or greater</p>
             </div>
         </div>
         <div class="col s8 food-diary">
             <h1>Track Your Calories!</h1>
+            <p id="currentDay" class="lead"></p>
+            <p id="recommended"></p>
+            <p id="caloriesLeft"></p>
+            <br>
             <div class="divider"></div>
-            <div class="section">
+            <div class="row">
                 <h2>Breakfast</h2>
-                <ul>Stuff</ul>
+                <br>
+                <div class="col s4 breakfast">
+                    <label>Food</label>
+                    <input type="text" id="breakfast">
+                </div>               
+                <div class="col s4 calories">
+                    <label>Calories</label>
+                    <input type="text" id="caloriesB">
+                </div>
+                <button class= "col s1 save">Save</button>
             </div>
             <div class="divider"></div>
-            <div class="section">
+            <div class="row">
                 <h2>Lunch</h2>
-                <p>Stuff</p>
+                <br>
+                <div class="col s4 lunch">
+                    <label>Food</label>
+                    <input type="text" id="food">
+                </div>               
+                <div class="col s4 calories">
+                    <label>Calories</label>
+                    <input type="text" id="calories">
+                </div>
+                <button class= "col s1 save">Save</button>
             </div>
             <div class="divider"></div>
-            <div class="section">
+            <div class="row">
                 <h2>Dinner</h2>
-                <p>Stuff</p>
+                <br>
+                <div class="col s4 dinner">
+                    <label>Food</label>
+                    <input type="text" id="food">
+                </div>               
+                <div class="col s4 calories">
+                    <label>Calories</label>
+                    <input type="text" id="calories">
+                </div>
+                <button class= "col s1 save">Save</button>
             </div>
             <div class="divider"></div>
-            <div class="section">
+            <div class="row">
                 <h2>Snacks</h2>
-                <p>Stuff</p>
+                <br>
+                <div class="col s4 snacks">
+                    <label>Food</label>
+                    <input type="text" id="food">
+                </div>               
+                <div class="col s4 calories">
+                    <label>Calories</label>
+                    <input type="text" id="calories">
+                </div>
+                <button class= "col s1 save">Save</button>
             </div>
             <div class="divider"></div>
-            <div class="section">
+            <div class="row">
                 <h2>Exercise</h2>
-                <p>Stuff</p>
+                <br>
+                <div class="col s4 exercise">
+                    <label>Workout</label>
+                    <input type="text" id="food">
+                </div>               
+                <div class="col s4 calories">
+                    <label>Calories Burnt</label>
+                    <input type="text" id="calories">
+                </div>
+                <button class= "col s1 save">Save</button>
             </div>
-
-
-
-
-
-<!-- 
-            <div class="row breakfast">Breakfast</div>
-            <div class="row lunch">Lunch</div>
-            <div class="row dinner">Dinner</div>
-            <div class="row snacks">Snacks</div>
-            <div class="row exercise">Exercise</div> -->
-
         </div>
-
-
+    </div>
 
 
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"
             integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
         <script src="assets/js/api.js"></script>
         <script src="assets/js/bmi.js"></script>
 
-    </div>
 </body>
 
 </html>
