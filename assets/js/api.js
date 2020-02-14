@@ -4,23 +4,24 @@ $(document).ready(function () {
   $('#multi2').formSelect();
 
   let searchTerm = $("#searchTerm");
+  let dietOptions = $(".dietOptions");
   let dietLabels = $("#dietLabels");
   let calories = $("#calories");
   let search = $("#search");
+  let searchResults = $("#searcResults");
+
+  window.addEventListener("load", function () {
+    searchResults.hide();
+});
 
   function createRow(response, i) {
-    // Create a new table row element
+    
     let tRow = $("<tr>");
 
-    // Methods run on jQuery selectors return the selector they we run on
-    // This is why we can create and save a reference to a td in the same statement we update its text
-
     let imageUrl = response.hits[i].recipe.image;
-    // Creating and storing an image tag
+    
     let recipeImage = $("<img>");
-    // Setting the catImage src attribute to imageUrl
-    // recipeImage.attr("src", imageUrl);
-    // recipeImage.attr("alt", "recipe image");
+  
     let recipeImageLink = $("<a>");
     recipeImageLink.attr("href", response.hits[i].recipe.shareAs)
     recipeImage.attr({ "src": imageUrl, "alt": "recipe image", "width": 100, "height": 100 });
@@ -42,18 +43,39 @@ $(document).ready(function () {
   search.on("click", function (event) {
     event.preventDefault();
     let searchKey = searchTerm.val().trim();
-    console.log(searchKey);
-    queryURL = `https://api.edamam.com/search?q=${searchKey}&app_id=84612d9d&app_key=a9ac302b044be5faf802625e3e3dbf9a`;
-    $.ajax({
-      url: queryURL,
-      method: "GET"
-    }).then(function (response) {
-      console.log(response);
-      for (let i = 0; i < response.hits.length; i++) {
-        createRow(response, i);
-      }
-    });
+      let dietOptions = [];
+      let dietOptionsChecked =  $(".dietOptions").children("option").filter(":selected").val();
+      dietOptions.push(dietOptionsChecked);
+      console.log(dietOptions);
+    })
+   
+  })
+    //   time = Object.entries(localStorage)[x][0];
+    //   eventInfo = Object.entries(localStorage)[x][1];
+    //   let eventDetails = $(`#eventDetails-${JSON.parse(time)}`);
+    //   if (eventInfo !== null) {
+    //     eventDetails.val(JSON.parse(eventInfo));
 
-  });
 
-});
+
+  // search.on("click", function (event) {
+  //   event.preventDefault();
+  //   let searchKey = searchTerm.val().trim();
+  //   let dietOptions =  $(".dietOptions").children("option").filter(":selected").text()
+  //   console.log(searchKey);
+  //   console.log(dietOptions);
+  //   searchResults.show();
+  //   queryURL = `https://api.edamam.com/search?q=${searchKey}&diet=balanced&app_id=84612d9d&app_key=a9ac302b044be5faf802625e3e3dbf9a`;
+  //   $.ajax({
+  //     url: queryURL,
+  //     method: "GET"
+  //   }).then(function (response) {
+  //     console.log(response);
+  //     for (let i = 0; i < response.hits.length; i++) {
+  //       createRow(response, i);
+  //     }
+  //   });
+
+  
+
+
