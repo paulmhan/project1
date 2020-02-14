@@ -31,7 +31,7 @@
                 <br>
                 <br>
                 <div class="yourBMI">
-
+                    <p id="yourBMItext"></p>
                 </div>
             </div>
             <br>
@@ -51,6 +51,10 @@
             <p id="recommended"></p>
             <p id="caloriesLeft"></p>
             <br>
+
+
+
+
             <div class="divider"></div>
             <div class="row">
                 <h2>Breakfast</h2>
@@ -58,13 +62,27 @@
                 <div class="col s4 breakfast">
                     <label>Food</label>
                     <input type="text" id="breakfast">
-                </div>               
+                </div>
                 <div class="col s4 calories">
                     <label>Calories</label>
                     <input type="text" id="caloriesB">
                 </div>
-                <button class= "col s1 save">Save</button>
+                <button class="col s1 save">Save</button>
+                <div id="msg"></div>
             </div>
+            <div class="card">
+                <p><strong>Food:</strong> <span id="renderedB"></span></p>
+                <p><strong>Calories:</strong> <span id="renderedBP"></span></p>
+            </div>
+
+
+
+
+
+
+
+
+
             <div class="divider"></div>
             <div class="row">
                 <h2>Lunch</h2>
@@ -72,12 +90,13 @@
                 <div class="col s4 lunch">
                     <label>Food</label>
                     <input type="text" id="food">
-                </div>               
+                </div>
                 <div class="col s4 calories">
                     <label>Calories</label>
                     <input type="text" id="calories">
                 </div>
-                <button class= "col s1 save">Save</button>
+                <button class="col s1 save">Save</button>
+                <div id="msg"></div>
             </div>
             <div class="divider"></div>
             <div class="row">
@@ -86,12 +105,13 @@
                 <div class="col s4 dinner">
                     <label>Food</label>
                     <input type="text" id="food">
-                </div>               
+                </div>
                 <div class="col s4 calories">
                     <label>Calories</label>
                     <input type="text" id="calories">
                 </div>
-                <button class= "col s1 save">Save</button>
+                <button class="col s1 save">Save</button>
+                <div id="msg"></div>
             </div>
             <div class="divider"></div>
             <div class="row">
@@ -100,12 +120,13 @@
                 <div class="col s4 snacks">
                     <label>Food</label>
                     <input type="text" id="food">
-                </div>               
+                </div>
                 <div class="col s4 calories">
                     <label>Calories</label>
                     <input type="text" id="calories">
                 </div>
-                <button class= "col s1 save">Save</button>
+                <button class="col s1 save">Save</button>
+                <div id="msg"></div>
             </div>
             <div class="divider"></div>
             <div class="row">
@@ -114,23 +135,24 @@
                 <div class="col s4 exercise">
                     <label>Workout</label>
                     <input type="text" id="food">
-                </div>               
+                </div>
                 <div class="col s4 calories">
                     <label>Calories Burnt</label>
                     <input type="text" id="calories">
                 </div>
-                <button class= "col s1 save">Save</button>
+                <button class="col s1 save">Save</button>
+                <div id="msg"></div>
             </div>
         </div>
     </div>
 
 
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-        <script src="assets/js/api.js"></script>
-        <script src="assets/js/bmi.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/bmi.js"></script>
 
 </body>
 
