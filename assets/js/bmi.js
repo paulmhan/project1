@@ -1,8 +1,10 @@
 let bmi;
 let recCal;
 let calRemaining;
+let foodB;
+let calB;
 $("#currentDay").text(moment().format('MMMM Do YYYY'));
-
+// renderFoodItems();
 
 //function that calculates BMI based off weight and height
 $(".calculateBMI").on("click",function(){
@@ -50,8 +52,8 @@ $(".calculateBMI").on("click",function(){
     //function that saves both inputs and appends it into a list, once the day is over, the day is saved into a tab
     $(".save").on("click",function(){
         //get value of inputs
-        let foodB = $("#breakfast").val().trim();
-        let calB = $("#caloriesB").val().trim();
+        foodB = $("#breakfast").val().trim();
+        calB = $("#caloriesB").val().trim();
         //makes sure inputs are not blank
         if (foodB === "") {
             displayMessage("Food cannot be blank");
@@ -75,6 +77,7 @@ $(".calculateBMI").on("click",function(){
             }, 1500);
           }
         // gets value and put into local storage
+        localStorage.clear();
         localStorage.setItem(foodB, calB);
         calRemaining = calRemaining - calB;
         //updates calories remaining
@@ -84,6 +87,14 @@ $(".calculateBMI").on("click",function(){
     })
 
     function renderFoodItems(){
+        for(let key in localStorage) {
+            if(localStorage.hasOwnProperty(key)) {
+                let li = $("<li>").text(`${key}: ${localStorage.getItem(key)}`);
+                key + localStorage.getItem(key);
+                $("#breakfastNames").append(li);
+                
+            }
+        }
 
     }
     
