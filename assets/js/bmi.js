@@ -1,9 +1,13 @@
+$(document).ready(function () {
+$('select').formSelect();
 let bmi;
 let recCal;
 let calRemaining;
+$("#currentDay").text(moment().format('MMMM Do' + ',' + ' YYYY'));
+
 let foodB;
 let calB;
-$("#currentDay").text(moment().format('MMMM Do YYYY'));
+
 // renderFoodItems();
 
 //function that calculates BMI based off weight and height
@@ -98,4 +102,4 @@ $(".calculateBMI").on("click",function(){
 
     }
     
-
+});
