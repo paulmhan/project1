@@ -62,4 +62,35 @@ h1{
 
 h2{
     font-size: 20px;
+    margin-left:10px;
+}
+
+.section{
+    display:inline-block;
+}
+
+.calories{
+    float:right;
+    width:50%;
+}
+
+.breakfast{
+    float:left;
+    width:50%;
+}
+
+.save{
+    float:right;
+}
+
+.row{
+    height:100%;
+}
+
+#currentDay{
+    text-align:center;
+}
+
+p{
+    text-align: center;
 }
