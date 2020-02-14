@@ -1,7 +1,9 @@
+$(document).ready(function () {
+$('select').formSelect();
 let bmi;
 let recCal;
 let calRemaining;
-$("#currentDay").text(moment().format('MMMM Do YYYY'));
+$("#currentDay").text(moment().format('MMMM Do' + ',' + ' YYYY'));
 
 
 //function that calculates BMI based off weight and height
@@ -18,7 +20,7 @@ $(".calculateBMI").on("click",function(){
         let height = feet + inch;
         bmi = weight2/Math.pow(height,2);
         bmi = Math.round(10*bmi)/10;
-        $(".yourBMI").text(bmi);
+        $("#yourBMItext").text(bmi);
         $(".infoBMI").css("display", "block");
         //if statement that will display recommended calories on top of food diary section, based off user's bmi                 
         if(bmi<18.5){
@@ -56,4 +58,4 @@ $(".calculateBMI").on("click",function(){
 
     })
     
-
+});
