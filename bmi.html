@@ -12,142 +12,151 @@
 </head>
 
 <body>
-    <div class="header"></div>
-
-    <div class="row">
-        <div class="col s4 bmi">
-            <div class="inputBMI">
-                <br>
-                Weight (lbs):<br>
-                <input type="text" name="weight" id="weight">
-                Height (ft):<br>
-                <input type="text" name="feet" id="feet">
-                Height (in):<br>
-                <input type="text" name="inches" id="inches">
-                <br>
-                <button class="calculateBMI">
-                    Get Your BMI
-                </button>
-                <br>
-                <br>
-                <div class="yourBMI">
-                    <p id="yourBMItext"></p>
-                </div>
-            </div>
-            <br>
-            <br>
-            <br>
-            <div class="infoBMI" style="display:none">
-                <h3>BMI Categories:</h3>
-                <p>Underweight = 18.5 or lower<br>
-                    Normal weight = 18.6–24.9<br>
-                    Overweight = 25–29.9<br>
-                    Obesity = 30 or greater</p>
-            </div>
-        </div>
-        <div class="col s8 food-diary">
-            <h1>Track Your Calories!</h1>
-            <p id="currentDay" class="lead"></p>
-            <p id="recommended"></p>
-            <p id="caloriesLeft"></p>
-            <br>
-
-
-
-
-            <div class="divider"></div>
-            <div class="row">
-                <h2>Breakfast</h2>
-                <br>
-                <div class="col s4 breakfast">
-                    <label>Food</label>
-                    <input type="text" id="breakfast">
-                </div>
-                <div class="col s4 calories">
-                    <label>Calories</label>
-                    <input type="text" id="caloriesB">
-                </div>
-                <button class="col s1 save">Save</button>
-                <div id="msg"></div>
-            </div>
-            <div class="card">
-                <ul id="breakfastNames">
-
+    <div class="container">
+        <nav>
+            <div class="nav-wrapper">
+                <a href="index.html" class="brand-logo center">Home</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="bmi.html">BMI</a></li>
                 </ul>
             </div>
+        </nav>
+        <br>
+        <h1 class="header">Track Your Calories!</h1>
+        <br>
+        <br>
+        <div class="input-field col s12">
+                <select>
+                  <option value="" disabled selected>Choose your option</option>
+                  <option value="1" id="currentDay" class="lead">Option 1</option>
+                  <option value="2">Option 2</option>
+                  <option value="3">Option 3</option>
+                </select>
+                <label>Materialize Select</label>
+              </div>
+        <!-- <p id="currentDay" class="lead"></p> -->
 
+        <br>
 
-
-
-
-
-
-
-
-            <div class="divider"></div>
+        <div class="card content-body">
             <div class="row">
-                <h2>Lunch</h2>
-                <br>
-                <div class="col s4 lunch">
-                    <label>Food</label>
-                    <input type="text" id="food">
+                <div class="col s4 bmi">
+                    <div class="inputBMI">
+                        <br>
+                        Weight (lbs):<br>
+                        <input type="text" name="weight" id="weight">
+                        Height (ft):<br>
+                        <input type="text" name="feet" id="feet">
+                        Height (in):<br>
+                        <input type="text" name="inches" id="inches">
+                        <br>
+                        <button class="btn waves-effect waves-light calculateBMI">
+                            Get Your BMI
+                        </button>
+                        <br>
+                        <br>
+                        
+                    </div>
                 </div>
-                <div class="col s4 calories">
-                    <label>Calories</label>
-                    <input type="text" id="calories">
-                </div>
-                <button class="col s1 save">Save</button>
-                <div id="msg"></div>
+                <div class="col s8">   
+                    <div class="yourBMI">
+                        <h3 id="BMI-header">Your BMI Index:</h3>
+                        <p id="yourBMItext"></p>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                    <div class="infoBMI" style="display:none">
+                        <h3>BMI Categories:</h3>
+                        <p>Underweight = 18.5 or lower<br>
+                            Normal weight = 18.6–24.9<br>
+                            Overweight = 25–29.9<br>
+                            Obesity = 30 or greater</p>
+                    </div>
+                </div> 
             </div>
-            <div class="divider"></div>
             <div class="row">
-                <h2>Dinner</h2>
-                <br>
-                <div class="col s4 dinner">
-                    <label>Food</label>
-                    <input type="text" id="food">
+                <div class="col s12 food-diary">
+
+                    <p id="recommended"></p>
+                    <p id="caloriesLeft"></p>
+                    <br>
+                    <div class="divider"></div>
+                    <div class="row">
+                        <h2>Breakfast</h2>
+                        <br>
+                        <div class="col s5 breakfast">
+                            <label>Food</label>
+                            <input type="text" id="breakfast">
+                        </div>
+                        <div class="col s5 calories">
+                            <label>Calories</label>
+                            <input type="text" id="caloriesB">
+                        </div>
+                        <button class="col s1 btn waves-effect waves-light save">Save</button>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="row">
+                        <h2>Lunch</h2>
+                        <br>
+                        <div class="col s5 lunch">
+                            <label>Food</label>
+                            <input type="text" id="food">
+                        </div>
+                        <div class="col s5 calories">
+                            <label>Calories</label>
+                            <input type="text" id="calories">
+                        </div>
+                        <button class="col s1 btn waves-effect waves-light save">Save</button>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="row">
+                        <h2>Dinner</h2>
+                        <br>
+                        <div class="col s5 dinner">
+                            <label>Food</label>
+                            <input type="text" id="food">
+                        </div>
+                        <div class="col s5 calories">
+                            <label>Calories</label>
+                            <input type="text" id="calories">
+                        </div>
+                        <button class="col s1 btn waves-effect waves-light save">Save</button>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="row">
+                        <h2>Snacks</h2>
+                        <br>
+                        <div class="col s5 snacks">
+                            <label>Food</label>
+                            <input type="text" id="food">
+                        </div>
+                        <div class="col s5 calories">
+                            <label>Calories</label>
+                            <input type="text" id="calories">
+                        </div>
+                        <button class="col s1 btn waves-effect waves-light save">Save</button>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="row">
+                        <h2>Exercise</h2>
+                        <br>
+                        <div class="col s5 exercise">
+                            <label>Workout</label>
+                            <input type="text" id="food">
+                        </div>
+                        <div class="col s5 calories">
+                            <label>Calories Burnt</label>
+                            <input type="text" id="calories">
+                        </div>
+                        <button class="col s1 btn waves-effect waves-light save">Save</button>
+                    </div>
                 </div>
-                <div class="col s4 calories">
-                    <label>Calories</label>
-                    <input type="text" id="calories">
-                </div>
-                <button class="col s1 save">Save</button>
-                <div id="msg"></div>
             </div>
-            <div class="divider"></div>
-            <div class="row">
-                <h2>Snacks</h2>
-                <br>
-                <div class="col s4 snacks">
-                    <label>Food</label>
-                    <input type="text" id="food">
-                </div>
-                <div class="col s4 calories">
-                    <label>Calories</label>
-                    <input type="text" id="calories">
-                </div>
-                <button class="col s1 save">Save</button>
-                <div id="msg"></div>
-            </div>
-            <div class="divider"></div>
-            <div class="row">
-                <h2>Exercise</h2>
-                <br>
-                <div class="col s4 exercise">
-                    <label>Workout</label>
-                    <input type="text" id="food">
-                </div>
-                <div class="col s4 calories">
-                    <label>Calories Burnt</label>
-                    <input type="text" id="calories">
-                </div>
-                <button class="col s1 save">Save</button>
-                <div id="msg"></div>
-            </div>
+
+
         </div>
     </div>
-
-
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
