@@ -43,11 +43,16 @@ $(".calculateBMI").on("click",function(){
 
     //function that saves both inputs and appends it into a list, once the day is over, the day is saved into a tab
     $(".save").on("click",function(){
-        // calRemaining = recCal;
-        // console.log(calRemaining);
-        // $("caloriesLeft").text(`Calories Remaining for Today: ${calRemaining}`);
+        let calObject={};
+        //get value of inputs
         let foodB = $("#breakfast").val().trim();
-        console.log(foodB);
+        let calB = $("#caloriesB").val().trim();
+        //gets value and put into object with key foodB and value calB
+        
+        //append the object in list format
+
+        //save to local storage so it doesnt go away
+
 
     })
     
