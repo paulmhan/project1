@@ -9,7 +9,7 @@ $(document).ready(function () {
   let searchResults = $("#searcResults");
 
   $(window).on('load', function () {
-    alert("loaded");
+    
 });
 
   function createRow(response, i) {
