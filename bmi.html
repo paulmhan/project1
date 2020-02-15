@@ -26,15 +26,15 @@
         <br>
         <br>
         <div class="input-field col s12">
-                <select>
-                  <option value="" disabled selected>Choose your option</option>
-                  <option value="1" id="currentDay" class="lead">Option 1</option>
-                  <option value="2">Option 2</option>
-                  <option value="3">Option 3</option>
-                </select>
-                <label>Materialize Select</label>
-              </div>
-        <!-- <p id="currentDay" class="lead"></p> -->
+            <select>
+                <option value="" disabled selected>Choose your option</option>
+                <option value="1" id="currentDay" class="lead">Option 1</option>
+                <option value="2">Option 2</option>
+                <option value="3">Option 3</option>
+            </select>
+            <label>Materialize Select</label>
+        </div>
+        <p id="currentDay" class="lead"></p>
 
         <br>
 
@@ -55,10 +55,10 @@
                         </button>
                         <br>
                         <br>
-                        
+
                     </div>
                 </div>
-                <div class="col s8">   
+                <div class="col s8">
                     <div class="yourBMI">
                         <h3 id="BMI-header">Your BMI Index:</h3>
                         <p id="yourBMItext"></p>
@@ -73,7 +73,7 @@
                             Overweight = 25–29.9<br>
                             Obesity = 30 or greater</p>
                     </div>
-                </div> 
+                </div>
             </div>
             <div class="row">
                 <div class="col s12 food-diary">
@@ -93,16 +93,16 @@
                         </div>
                         <div class="col s5 calories">
                             <label>Calories</label>
-                            <input type="text" id="caloriesB">
+                            <input type="text" id="breakfastB">
                         </div>
-                        <button class="col s1 btn waves-effect waves-light save">Save</button>
-                        <div id="msg"></div>
+                        <button class="col s1 btn waves-effect waves-light save" data-type='breakfast'>Save</button>
+                        <div id="breakfastMsg"></div>
                     </div>
-                        <div class="card">
-                            <ul id="breakfastNames">
-    
-                            </ul>
-                        </div>
+                    <div class="card">
+                        <ul id="breakfastNames">
+
+                        </ul>
+                    </div>
 
 
 
@@ -112,56 +112,92 @@
                         <br>
                         <div class="col s5 lunch">
                             <label>Food</label>
-                            <input type="text" id="food">
+                            <input type="text" id="lunch">
                         </div>
                         <div class="col s5 calories">
                             <label>Calories</label>
-                            <input type="text" id="calories">
+                            <input type="text" id="lunchB">
                         </div>
-                        <button class="col s1 btn waves-effect waves-light save">Save</button>
+                        <button class="col s1 btn waves-effect waves-light save" data-type='lunch'>Save</button>
+                        <div id="lunchMsg"></div>
                     </div>
+                    <div class="card">
+                        <ul id="lunchNames">
+
+                        </ul>
+                    </div>
+
+
+
                     <div class="divider"></div>
                     <div class="row">
                         <h2>Dinner</h2>
                         <br>
                         <div class="col s5 dinner">
                             <label>Food</label>
-                            <input type="text" id="food">
+                            <input type="text" id="dinner">
                         </div>
                         <div class="col s5 calories">
                             <label>Calories</label>
-                            <input type="text" id="calories">
+                            <input type="text" id="dinnerB">
                         </div>
-                        <button class="col s1 btn waves-effect waves-light save">Save</button>
+                        <button class="col s1 btn waves-effect waves-light save" data-type='dinner'>Save</button>
+                        <div id="dinnerMsg"></div>
                     </div>
+                    <div class="card">
+                        <ul id="dinnerNames">
+
+                        </ul>
+                    </div>
+
+
+
+
                     <div class="divider"></div>
                     <div class="row">
                         <h2>Snacks</h2>
                         <br>
                         <div class="col s5 snacks">
                             <label>Food</label>
-                            <input type="text" id="food">
+                            <input type="text" id="snacks">
                         </div>
                         <div class="col s5 calories">
                             <label>Calories</label>
-                            <input type="text" id="calories">
+                            <input type="text" id="snacksB">
                         </div>
-                        <button class="col s1 btn waves-effect waves-light save">Save</button>
+                        <button class="col s1 btn waves-effect waves-light save" data-type='snacks'>Save</button>
+                        <div id="snacksMsg"></div>
                     </div>
+                    <div class="card">
+                        <ul id="snackNames">
+
+                        </ul>
+                    </div>
+
+
+
                     <div class="divider"></div>
                     <div class="row">
                         <h2>Exercise</h2>
                         <br>
                         <div class="col s5 exercise">
                             <label>Workout</label>
-                            <input type="text" id="food">
+                            <input type="text" id="exercise">
                         </div>
                         <div class="col s5 calories">
                             <label>Calories Burnt</label>
-                            <input type="text" id="calories">
+                            <input type="text" id="exerciseB">
                         </div>
-                        <button class="col s1 btn waves-effect waves-light save">Save</button>
+                        <button class="col s1 btn waves-effect waves-light save" data-type="exercise">Save</button>
+                        <div id="exerciseMsg"></div>
+
                     </div>
+                    <div class="card">
+                        <ul id="exerciseNames">
+
+                        </ul>
+                    </div>
+
                 </div>
             </div>
 
