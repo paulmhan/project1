@@ -3,14 +3,10 @@ $('select').formSelect();
 let bmi;
 let recCal;
 let calRemaining;
+let type;
 $("#currentDay").text(moment().format('MMMM Do' + ',' + ' YYYY'));
-let foodB;
-let calB;
-// let food;
-// let cal;
 
 
-// renderFoodItems();
 
 //function that calculates BMI based off weight and height
 $(".calculateBMI").on("click",function(){
@@ -50,97 +46,70 @@ $(".calculateBMI").on("click",function(){
 
     //displays message based off inputs
     function displayMessage(message) {
-        $("#msg").text(message)
+        $(`#${type}Msg`).text(message)
       }
 
 
     //function that saves both inputs and appends it into a list, once the day is over, the day is saved into a tab
     $(".save").on("click",function(){
         //get value of inputs
-        foodB = $("#breakfast").val().trim();
-        calB = $("#caloriesB").val().trim();
+        type = $(this).attr('data-type');
+        const inputFood = $(`#${type}`).val().trim();
+        const inputCalories = $(`#${type}B`).val().trim();
         //change input box back into blanks
-        $("#breakfast").val("");
-        $("#caloriesB").val("");
+        $(`#${type}`).val("");
+        $(`#${type}B`).val("");
         //makes sure inputs are not blank
-        if (foodB === "") {
+        if (inputFood === "") {
             displayMessage("Food cannot be blank");
             setTimeout(function(){
-                $("#msg").text("");
+                $(`#${type}Msg`).text("");
             }, 1500);
-          } else if (calB === "") {
+          } else if (inputCalories === "") {
             displayMessage("Calories cannot be blank");
             setTimeout(function(){
-                $("#msg").text("");
+                $(`#${type}Msg`).text("");
             }, 1500);
-          } else if (isNaN(calB)) {
+          } else if (isNaN(inputCalories)) {
             displayMessage("Calories must be a number");
             setTimeout(function(){
-                $("#msg").text("");
+                $(`#${type}Msg`).text("");
             }, 1500);
           } else {
             displayMessage("Saved successfully");
             setTimeout(function(){
-                $("#msg").text("");
+                $(`#${type}Msg`).text("");
             }, 1500);
+            // gets value and put into local storage
+            const foodToSave = {};
+            foodToSave.cal = inputCalories;
+            foodToSave.food = inputFood;
+            localStorage.clear();
+            localStorage.setItem(type, JSON.stringify(foodToSave));
+            calRemaining = calRemaining - inputCalories;
+            //updates calories remaining
+            $("#caloriesLeft").text(`Calories Remaining for Today: ${calRemaining}`);
+            ///get items in local storage
+            renderFoodItems();
+
           }
-        // gets value and put into local storage
-        localStorage.clear();
-        localStorage.setItem(foodB, calB);
-        calRemaining = calRemaining - calB;
-        //updates calories remaining
-        $("#caloriesLeft").text(`Calories Remaining for Today: ${calRemaining}`);
-        ///get items in local storage
-        renderFoodItems();
     })
 
 
-    // $(".save").on("click",function(){
-    //     //get value of inputs
-    //     food = $("#food").val().trim();
-    //     cal = $("#calories").val().trim();
-    //     //makes sure inputs are not blank
-    //     if (food === "") {
-    //         displayMessage("Food cannot be blank");
-    //         setTimeout(function(){
-    //             $("#msg").text("");
-    //         }, 1500);
-    //       } else if (cal === "") {
-    //         displayMessage("Calories cannot be blank");
-    //         setTimeout(function(){
-    //             $("#msg").text("");
-    //         }, 1500);
-    //       } else if (isNaN(cal)) {
-    //         displayMessage("Calories must be a number");
-    //         setTimeout(function(){
-    //             $("#msg").text("");
-    //         }, 1500);
-    //       } else {
-    //         displayMessage("Saved successfully");
-    //         setTimeout(function(){
-    //             $("#msg").text("");
-    //         }, 1500);
-    //       }
-    //     // gets value and put into local storage
-    //     localStorage.clear();
-    //     localStorage.setItem(food, cal);
-    //     calRemaining = calRemaining - cal;
-    //     //updates calories remaining
-    //     $("#caloriesLeft").text(`Calories Remaining for Today: ${calRemaining}`);
-    //     ///get items in local storage
-    //     renderFoodItems();
-    // })
 
     function renderFoodItems(){
         for(let key in localStorage) {
             if(localStorage.hasOwnProperty(key)) {
-                let li = $("<li>").text(`${key}: ${localStorage.getItem(key)}`);
-                key + localStorage.getItem(key);
-                $("#breakfastNames").append(li);
-                
+                const food = JSON.parse(localStorage.getItem(key));
+                let li = $("<li>").text(`${food.food}: ${food.cal} calories `);
+                $(`#${key}Names`).html(li);                
             }
         }
-
-    }
-    
+    }   
 });
+
+
+
+//todo 
+//want list to stay after refreshing
+//clear input values after saving
