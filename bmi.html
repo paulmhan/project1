@@ -25,17 +25,25 @@
         <h1 class="header">Track Your Calories!</h1>
         <br>
         <br>
-        <div class="input-field col s12">
-            <select>
-                <option value="" disabled selected>Choose your option</option>
-                <option value="1" id="currentDay" class="lead">Option 1</option>
-                <option value="2">Option 2</option>
-                <option value="3">Option 3</option>
-            </select>
-            <label>Materialize Select</label>
-        </div>
         <p id="currentDay" class="lead"></p>
+        <br>
 
+        <div class="card" id="date-tracker">
+            <div class="row">
+                <div class="col s2">
+
+                </div>
+                <div class="input-field col s8">
+                    <select>
+                        <option value="" disabled selected>Choose a date:</option>
+                    </select>
+                    <label>Date:</label>
+                </div>
+                <div class="col s2">
+
+                </div>
+            </div>
+        </div>
         <br>
 
         <div class="card content-body">
@@ -77,13 +85,15 @@
             </div>
             <div class="row">
                 <div class="col s12 food-diary">
-                    <p id="recommended"></p>
-                    <p id="caloriesLeft"></p>
+                    <div class="calorieResult">
+                        <p id="recommended"></p>
+                        <p id="caloriesLeft"></p>
+                    </div>
                     <br>
 
 
 
-                    <div class="divider"></div>
+                    <br>
                     <div class="row">
                         <h2>Breakfast</h2>
                         <br>
@@ -106,7 +116,7 @@
 
 
 
-                    <div class="divider"></div>
+                    <br>
                     <div class="row">
                         <h2>Lunch</h2>
                         <br>

@@ -12,7 +12,7 @@
 
 <body>
     <div class="container">
-       
+
         <nav>
             <div class="nav-wrapper">
                 <a href="index.html" class="brand-logo center">Home</a>
@@ -41,7 +41,8 @@
                     <br>
 
                     <div class="input-field">
-                        <select multiple id="multi" class ="dietOptions">
+                        <select multiple id="multi" class="dietOptions">
+                            <option value="" disabled selected>Choose your diet option:</option>
                             <option value="balanced">Balanced</option>
                             <option value="high-fiber">High-Fiber</option>
                             <option value="high-protein">High-Protein</option>
@@ -75,18 +76,8 @@
 
                     <br>
 
-                    <div class="input-field">
-
-                        <input type="text" class="validate" id="calories">
-                        <label for="calories">Calories (Optional) Input maximum desired calories per serving. For food
-                            database results
-                            default serving is 100g.</label>
-                    </div>
-
-                    <br>
-
-                    <input id="search" class="btn btn-light" type="submit" value="Search">
-                    <button type="button" class="btn btn-light">Clear Results</button>
+                    <input id="search" class="btn btn-light saveButton" type="submit" value="Search">
+                    <button type="button" class="btn btn-light clearButton">Clear Results</button>
                 </form>
             </div>
             <div class="row" id="searchResults">
