@@ -21,3 +21,20 @@ body {
     text-align: center;
 }
 
+button {
+    color: tomato;
+}
+
+.nav-wrapper {
+    background-color: tomato;
+}
+
+.saveButton {
+    background-color: tomato;
+}
+
+.clearButton {
+    background-color: tomato;
+}
+
+
