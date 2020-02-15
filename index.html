@@ -42,12 +42,14 @@
 
                     <div class="input-field">
                         <select multiple id="multi" class="dietOptions">
+
                             <option value="" disabled selected>Choose your diet option:</option>
+
                             <option value="balanced">Balanced</option>
                             <option value="high-fiber">High-Fiber</option>
                             <option value="high-protein">High-Protein</option>
                             <option value="low-carb">Low-Carb</option>
-                            <option value="ow-fat">Low-Fat</option>
+                            <option value="low-fat">Low-Fat</option>
                             <option value="low-sodium">Low-Sodium</option>
                         </select>
                         <label>Diet Options:</label>
@@ -56,20 +58,19 @@
                     <br>
 
                     <div class="input-field">
-                        <select multiple id="multi2">
-                            <option value="" disabled selected>Choose your health option:</option>
-                            <option value="1">Dairy-free</option>
-                            <option value="2">Gluten-free</option>
-                            <option value="3">Keto</option>
-                            <option value="4">Kosher</option>
-                            <option value="5">Paleo</option>
-                            <option value="6">Peanut-free</option>
-                            <option value="7">Pescatarian</option>
-                            <option value="8">Pork-free</option>
-                            <option value="9">Shellfish-free</option>
-                            <option value="10">Vegan</option>
-                            <option value="11">Vegetarian</option>
-                            <option value="12">Wheat-free</option>
+                        <select multiple id="multi2" class="healthOptions">
+                            <option value="dairy-free">Dairy-free</option>
+                            <option value="gluten-free">Gluten-free</option>
+                            <option value="keto">Keto</option>
+                            <option value="kosher">Kosher</option>
+                            <option value="paleo">Paleo</option>
+                            <option value="peanut-free">Peanut-free</option>
+                            <option value="pescatarian">Pescatarian</option>
+                            <option value="pork-free">Pork-free</option>
+                            <option value="shelfffish-free">Shellfish-free</option>
+                            <option value="vegan">Vegan</option>
+                            <option value="vegetarian">Vegetarian</option>
+                            <option value="wheat-free">Wheat-free</option>
                         </select>
                         <label>Health Options:</label>
                     </div>
@@ -80,7 +81,7 @@
                     <button type="button" class="btn btn-light clearButton">Clear Results</button>
                 </form>
             </div>
-            <div class="row" id="searchResults">
+            <div class="row" id="searchResults" class="hidden">
                 <div class="col s12">
                     <h2>Recipe search results</h2>
                 </div>
@@ -88,19 +89,17 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <!-- The scope attribute specifies that this is a header for a column -->
                             <th scope="col">Image</th>
                             <th scope="col"># of servings</th>
                             <th scope="col">Title</th>
                             <th scope="col">Energy (Kcal)</th>
-                            <th scope="col">Nutrients</th>
+                            <th scope="col">Nutrients</th> -->
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <!-- Insert additional recipe rows here -->
                         </tr>
-
                     </tbody>
                 </table>
             </div>
