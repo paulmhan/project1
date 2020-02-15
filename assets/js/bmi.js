@@ -55,11 +55,14 @@ $(document).ready(function () {
     //function that saves both inputs and appends it into a list, once the day is over, the day is saved into a tab
     $(".save").on("click", function () {
         //get value of inputs
+        // console.log(100);
         type = $(this).attr('data-type');
         const inputFood = $(`#${type}`).val();
         const inputCalories = $(`#${type}B`).val();
-        const exerciseCalories = $('#exerciseC').val();
-        
+        // const exerciseCalories = $('#exerciseC').val();
+        console.log(type);
+        // console.log(inputFood);
+        // console.log()
         //change input box back into blanks
         $(`#${type}`).val("");
         $(`#${type}B`).val("");
@@ -81,11 +84,6 @@ $(document).ready(function () {
             setTimeout(function () {
                 $(`#${type}Msg`).text("");
             }, 1500);
-        } else if (isNaN(exerciseCalories)) {
-            displayMessage("Calories must be a number");
-            setTimeout(function () {
-                $(`#${type}Msg`).text("");
-            }, 1500);
         } else {
             displayMessage("Saved successfully");
             setTimeout(function () {
@@ -99,16 +97,18 @@ $(document).ready(function () {
                 foodToSave.cal = inputCalories;
                 foodToSave.food = inputFood;
                 meals.push(foodToSave);
+                console.log(10);
                 localStorage.setItem(type, JSON.stringify(meals));
             } else {
                 const foodToSave = {};
                 foodToSave.cal = inputCalories;
                 foodToSave.food = inputFood;
                 currentMeal.push(foodToSave);
+                console.log(1000);
                 localStorage.setItem(type, JSON.stringify(currentMeal));
             }
             
-            calRemaining = calRemaining - inputCalories + exerciseCalories;
+            // calRemaining = calRemaining - inputCalories + exerciseCalories;
             //updates calories remaining
             $("#caloriesLeft").text(`Calories Remaining for Today: ${calRemaining}`);
             ///get items in local storage
