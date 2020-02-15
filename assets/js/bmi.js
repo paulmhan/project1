@@ -5,6 +5,7 @@ $(document).ready(function () {
     let recCal;
     let calRemaining;
     let type;
+    
     $("#currentDay").text(moment().format('MMMM Do' + ',' + ' YYYY'));
 
 
@@ -55,14 +56,18 @@ $(document).ready(function () {
     $(".save").on("click", function () {
         //get value of inputs
         type = $(this).attr('data-type');
-        const inputFood = $(`#${type}`).val().trim();
-        const inputCalories = $(`#${type}B`).val().trim();
+        const inputFood = $(`#${type}`).val();
+        const inputCalories = $(`#${type}B`).val();
+        const exerciseCalories = $('#exerciseC').val();
+        
         //change input box back into blanks
         $(`#${type}`).val("");
         $(`#${type}B`).val("");
+        $('#exercise').val("");
+        $('#exerciseC').val("");
         //makes sure inputs are not blank
         if (inputFood === "") {
-            displayMessage("Food cannot be blank");
+            displayMessage("Input cannot be blank");
             setTimeout(function () {
                 $(`#${type}Msg`).text("");
             }, 1500);
@@ -76,18 +81,34 @@ $(document).ready(function () {
             setTimeout(function () {
                 $(`#${type}Msg`).text("");
             }, 1500);
+        } else if (isNaN(exerciseCalories)) {
+            displayMessage("Calories must be a number");
+            setTimeout(function () {
+                $(`#${type}Msg`).text("");
+            }, 1500);
         } else {
             displayMessage("Saved successfully");
             setTimeout(function () {
                 $(`#${type}Msg`).text("");
             }, 1500);
             // gets value and put into local storage
-            const foodToSave = {};
-            foodToSave.cal = inputCalories;
-            foodToSave.food = inputFood;
-            // localStorage.clear();
-            localStorage.setItem(type, JSON.stringify(foodToSave));
-            calRemaining = calRemaining - inputCalories;
+            const currentMeal = JSON.parse(localStorage.getItem(type));
+            if(!currentMeal) {
+                const meals = [];
+                const foodToSave = {};
+                foodToSave.cal = inputCalories;
+                foodToSave.food = inputFood;
+                meals.push(foodToSave);
+                localStorage.setItem(type, JSON.stringify(meals));
+            } else {
+                const foodToSave = {};
+                foodToSave.cal = inputCalories;
+                foodToSave.food = inputFood;
+                currentMeal.push(foodToSave);
+                localStorage.setItem(type, JSON.stringify(currentMeal));
+            }
+            
+            calRemaining = calRemaining - inputCalories + exerciseCalories;
             //updates calories remaining
             $("#caloriesLeft").text(`Calories Remaining for Today: ${calRemaining}`);
             ///get items in local storage
@@ -100,9 +121,15 @@ $(document).ready(function () {
     function renderFoodItems() {
         for (let key in localStorage) {
             if (localStorage.hasOwnProperty(key)) {
-                const food = JSON.parse(localStorage.getItem(key));
-                let li = $("<li>").text(`${food.food}: ${food.cal} calories `);
-                $(`#${key}Names`).html(li);
+                const foods = JSON.parse(localStorage.getItem(key));
+                $(`#${key}Names`).empty();
+
+                foods.forEach(food => {
+                    let li = $("<li>").text(`${food.food}: ${food.cal} calories `);
+                    $(`#${key}Names`).append(li);
+                })
+              
+                
             }
         }
     }
@@ -111,7 +138,7 @@ $(document).ready(function () {
     $(".clear").on("click", function(){
         type = $(this).attr('data-type');
         localStorage.removeItem(type);
-        renderFoodItems();
+        $(`#${type}Names`).html("");
     
     
     })
@@ -121,10 +148,5 @@ $(document).ready(function () {
 
 
 //todo
-
-
-
-
 //exercise function that adds calories
-//clear button
 //save date to localstorage

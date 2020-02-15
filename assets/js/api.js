@@ -13,8 +13,8 @@ $(document).ready(function () {
   let dietOptions = $(".dietOptions");
 
   $(window).on('load', function () {
-
-  });
+    
+});
 
   function createRow(response, i) {
 
