@@ -6,11 +6,15 @@ $(document).ready(function () {
   let searchTerm = $("#searchTerm");
   let calories = $("#calories");
   let search = $("#search");
+  let msg = $("#msg");
   let searchResults = $("#searcResults");
+  let clearButton = $(".clearButton");
+  let healthOptions = $(".healthOptions");
+  let dietOptions = $(".dietOptions");
 
   $(window).on('load', function () {
-    alert("loaded");
-});
+
+  });
 
   function createRow(response, i) {
 
@@ -38,48 +42,70 @@ $(document).ready(function () {
     $("tbody").append(tRow);
   };
 
+  clearButton.on("click", function (event) {
+    searchTerm.val("");
+    healthOptions.val("");
+    dietOptions.val("");
+    msg.text("");
+    msg.hide();
+  });
 
-search.on("click", function (event) {
-  event.preventDefault();
-  let searchKey = searchTerm.val().trim();
-  let caloriesKey = calories.val().trim();
-  dietOptionsArray =[];
-  $.each($(".dietOptions").children("option").filter(":selected"), function() {
-    selectedDietOptions =this.value;
-    dietOptionsArray.push(selectedDietOptions);
-  });
-  let dietKey ="";
-  for (let i=0; i<dietOptionsArray.length; i++) {
-    dietKey +=dietOptionsArray[i]+"&"
-  }
-  healthOptionsArray =[];
-  $.each($(".healthOptions").children("option").filter(":selected"), function() {
-    selectedHealthOptions =this.value;
-    healthOptionsArray.push(selectedHealthOptions);
-  });
-  let healthKey ="";
-  for (let i=0; i<healthOptionsArray.length; i++) {
-    healthKey +=healthOptionsArray[i]+"&"
-  }
-  searchResults.css("display", "block");
-  let corsUrl = "https://cors-anywhere.herokuapp.com/"
-  // let queryURL = corsUrl + `https://api.edamam.com/search?q=${searchKey}&app_id=84612d9d&app_key=a9ac302b044be5faf802625e3e3dbf9a`;
-  let queryURL = corsUrl +`https://api.edamam.com/search?q=${searchKey}&diet=${dietKey}health=${healthKey}calories=${caloriesKey}&app_id=84612d9d&app_key=a9ac302b044be5faf802625e3e3dbf9a`;
-  console.log(queryURL);
-  
-  $.ajax({
-    method: "GET",
-    url: queryURL
-    // Access-Control-Allow-Origin: "https://api.edamam.com"
-  }).then(function (response) {
-    console.log(response);
-    for (let i = 0; i < response.hits.length; i++) {
-      createRow(response, i);
+  search.on("click", function (event) {
+    event.preventDefault();
+    let searchKey = searchTerm.val().trim();
+    dietOptionsArray = [];
+    $.each($(".dietOptions").children("option").filter(":selected"), function () {
+      selectedDietOptions = this.value;
+      dietOptionsArray.push(selectedDietOptions);
+    });
+    let dietKey = "";
+    for (let i = 0; i < dietOptionsArray.length; i++) {
+      dietKey += dietOptionsArray[i] + "&"
     }
-  }).catch(function(e) {
-    console.log(e);
-  })
+    healthOptionsArray = [];
+    $.each($(".healthOptions").children("option").filter(":selected"), function () {
+      selectedHealthOptions = this.value;
+      healthOptionsArray.push(selectedHealthOptions);
+    });
+    let healthKey = "";
+    for (let i = 0; i < healthOptionsArray.length; i++) {
+      healthKey += healthOptionsArray[i] + "&"
+    }
+    searchResults.css("display", "block");
+    let corsUrl = "https://cors-anywhere.herokuapp.com/";
+    let queryURL;
+    if (searchKey === "") {
+      msg.text("Search field cannot be empty!! Type the ingredient name to search for the recipes you are looking for.")
+    }
+    else if (dietKey === "" & healthKey === "") {
 
-});
+      queryURL = corsUrl + `https://api.edamam.com/search?q=${searchKey}&app_id=84612d9d&app_key=a9ac302b044be5faf802625e3e3dbf9a`;
+
+    }
+    else if (dietKey === "") {
+      let queryURL = corsUrl + `https://api.edamam.com/search?q=${searchKey}&health=${healthKey}app_id=84612d9d&app_key=a9ac302b044be5faf802625e3e3dbf9a`;
+    }
+    else if (healthKey === "") {
+      let queryURL = corsUrl + `https://api.edamam.com/search?q=${searchKey}&diet=${dietKey}app_id=84612d9d&app_key=a9ac302b044be5faf802625e3e3dbf9a`;
+    }
+    else {
+      queryURL = corsUrl + `https://api.edamam.com/search?q=${searchKey}&diet=${dietKey}health=${healthKey}app_id=84612d9d&app_key=a9ac302b044be5faf802625e3e3dbf9a`;
+    }
+    console.log(queryURL);
+
+    $.ajax({
+      method: "GET",
+      url: queryURL
+      // Access-Control-Allow-Origin: "https://api.edamam.com"
+    }).then(function (response) {
+      console.log(response);
+      for (let i = 0; i < response.hits.length; i++) {
+        createRow(response, i);
+      }
+    }).catch(function (e) {
+      console.log(e);
+    })
+
+  });
 });
 
