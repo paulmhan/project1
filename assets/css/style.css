@@ -4,20 +4,11 @@ body {
 }
 
 #header {
-    /* height: 140px; */
     justify-content: left;
     font-size: 40px;
     font-weight: bold;
-    /* margin-bottom: 20px; */
-    /* background-color:none;  */
     color: tomato;
-    
 }
-#articles {
-    margin-top: 20px;
+ #searchResults {
+    display:none;
 }
-#footer {
-    margin-top: 10px;
-    text-align: center;
-}
-

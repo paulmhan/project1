@@ -4,15 +4,13 @@ $(document).ready(function () {
   $('#multi2').formSelect();
 
   let searchTerm = $("#searchTerm");
-  let dietOptions = $(".dietOptions");
-  let dietLabels = $("#dietLabels");
   let calories = $("#calories");
   let search = $("#search");
   let searchResults = $("#searcResults");
 
-  window.addEventListener("load", function () {
-    searchResults.hide();
-  });
+  $(window).on('load', function () {
+    alert("loaded");
+});
 
   function createRow(response, i) {
 
@@ -44,23 +42,43 @@ $(document).ready(function () {
 search.on("click", function (event) {
   event.preventDefault();
   let searchKey = searchTerm.val().trim();
-  let dietOptions = [];
-  let dietOptionsChecked = $(".dietOptions").children("option").filter(":selected").val();
-  dietOptions.push(dietOptionsChecked);
-  console.log(dietOptions);
-  console.log(searchKey);
-  console.log(dietOptions);
-  searchResults.show();
-  queryURL = `https://api.edamam.com/search?q=${searchKey}&diet=balanced&app_id=84612d9d&app_key=a9ac302b044be5faf802625e3e3dbf9a`;
+  let caloriesKey = calories.val().trim();
+  dietOptionsArray =[];
+  $.each($(".dietOptions").children("option").filter(":selected"), function() {
+    selectedDietOptions =this.value;
+    dietOptionsArray.push(selectedDietOptions);
+  });
+  let dietKey ="";
+  for (let i=0; i<dietOptionsArray.length; i++) {
+    dietKey +=dietOptionsArray[i]+"&"
+  }
+  healthOptionsArray =[];
+  $.each($(".healthOptions").children("option").filter(":selected"), function() {
+    selectedHealthOptions =this.value;
+    healthOptionsArray.push(selectedHealthOptions);
+  });
+  let healthKey ="";
+  for (let i=0; i<healthOptionsArray.length; i++) {
+    healthKey +=healthOptionsArray[i]+"&"
+  }
+  searchResults.css("display", "block");
+  let corsUrl = "https://cors-anywhere.herokuapp.com/"
+  // let queryURL = corsUrl + `https://api.edamam.com/search?q=${searchKey}&app_id=84612d9d&app_key=a9ac302b044be5faf802625e3e3dbf9a`;
+  let queryURL = corsUrl +`https://api.edamam.com/search?q=${searchKey}&diet=${dietKey}health=${healthKey}calories=${caloriesKey}&app_id=84612d9d&app_key=a9ac302b044be5faf802625e3e3dbf9a`;
+  console.log(queryURL);
+  
   $.ajax({
-    url: queryURL,
-    method: "GET"
+    method: "GET",
+    url: queryURL
+    // Access-Control-Allow-Origin: "https://api.edamam.com"
   }).then(function (response) {
     console.log(response);
     for (let i = 0; i < response.hits.length; i++) {
       createRow(response, i);
     }
-  });
+  }).catch(function(e) {
+    console.log(e);
+  })
 
 });
 });
