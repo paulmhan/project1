@@ -9,9 +9,6 @@ body {
     font-weight: bold;
     color: tomato;
 }
- #searchResults {
-    display:none;
-}
 
 #footer {
     margin-top: 10px;
