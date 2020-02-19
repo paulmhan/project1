@@ -29,12 +29,13 @@
                 <div class="col s12">
                     Choose one or more methods for searching:
                 </div>
+                <div class ="row"><p id="msg"></p></div>
             </div>
-            <div class="card-content">
+            <div class="card-content input-fields">
                 <form>
                     <div class="input-field">
                         <input type="text" class="validate" id="searchTerm">
-                        <label for="searchTerm">Search what you are starving for...</label>
+                        <label for="searchTerm">Type the search word for the recipes you are starving for. For example chicken, potato, basil etc</label>
 
                     </div>
 
@@ -42,9 +43,6 @@
 
                     <div class="input-field">
                         <select multiple id="multi" class="dietOptions">
-
-                            <option value="" disabled selected>Choose your diet option:</option>
-
                             <option value="balanced">Balanced</option>
                             <option value="high-fiber">High-Fiber</option>
                             <option value="high-protein">High-Protein</option>
@@ -80,10 +78,12 @@
                     <input id="search" class="btn btn-light saveButton" type="submit" value="Search">
                     <button type="button" class="btn btn-light clearButton">Clear Results</button>
                 </form>
+                <hr>
+            
             </div>
-            <div class="row" id="searchResults" class="hidden">
+            <div class="row" id="searchResults">
                 <div class="col s12">
-                    <h2>Recipe search results</h2>
+                    <h4>Recipe search results</h4>
                 </div>
 
                 <table class="table">
@@ -93,7 +93,7 @@
                             <th scope="col"># of servings</th>
                             <th scope="col">Title</th>
                             <th scope="col">Energy (Kcal)</th>
-                            <th scope="col">Nutrients</th> -->
+                            <th scope="col">Nutrients</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -103,8 +103,6 @@
                     </tbody>
                 </table>
             </div>
-
-
 
         </div>
 

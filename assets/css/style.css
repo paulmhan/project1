@@ -9,9 +9,6 @@ body {
     font-weight: bold;
     color: tomato;
 }
- #searchResults {
-    display:none;
-}
 
 #footer {
     margin-top: 10px;
@@ -32,6 +29,11 @@ button {
 
 .clearButton {
     background-color: tomato;
+}
+#msg {
+    color: tomato;
+    font-size: 20px;
+    text-align: center;
 }
 
 
