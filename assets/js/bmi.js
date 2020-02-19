@@ -1,12 +1,27 @@
 $(document).ready(function () {
+    $("#currentDay").text(moment().format('MMMM Do' + ',' + ' YYYY'));
     $('select').formSelect();
     renderFoodItems();
     let bmi;
     let recCal;
     let calRemaining;
     let type;
+    let inputFood;
+    let inputCalories;
+    let midnight = "0:00:00"
     
-    $("#currentDay").text(moment().format('MMMM Do' + ',' + ' YYYY'));
+
+    // reset function
+    setInterval(function () {
+        let now = moment().format("H:mm:ss");
+        if (now === midnight) {
+            localStorage.clear();
+            renderFoodItems();
+        }
+    }, 1000);
+
+
+
 
 
 
@@ -24,6 +39,7 @@ $(document).ready(function () {
             let height = feet + inch;
             bmi = weight2 / Math.pow(height, 2);
             bmi = Math.round(10 * bmi) / 10;
+            // localStorage.setItem("bmi",bmi);
             $("#yourBMItext").text(bmi);
             $(".infoBMI").css("display", "block");
             //if statement that will display recommended calories on top of food diary section, based off user's bmi                 
@@ -52,17 +68,12 @@ $(document).ready(function () {
     }
 
 
-    //function that saves both inputs and appends it into a list, once the day is over, the day is saved into a tab
+    //function that saves food input, appends to specific mealrow, and then subtracts calories to daily remaining
     $(".save").on("click", function () {
         //get value of inputs
-        // console.log(100);
         type = $(this).attr('data-type');
-        const inputFood = $(`#${type}`).val();
-        const inputCalories = $(`#${type}B`).val();
-        // const exerciseCalories = $('#exerciseC').val();
-        console.log(type);
-        // console.log(inputFood);
-        // console.log()
+        inputFood = $(`#${type}`).val();
+        inputCalories = $(`#${type}B`).val();
         //change input box back into blanks
         $(`#${type}`).val("");
         $(`#${type}B`).val("");
@@ -90,25 +101,23 @@ $(document).ready(function () {
                 $(`#${type}Msg`).text("");
             }, 1500);
             // gets value and put into local storage
-            const currentMeal = JSON.parse(localStorage.getItem(type));
+            let currentMeal = JSON.parse(localStorage.getItem(type));
             if(!currentMeal) {
-                const meals = [];
-                const foodToSave = {};
+                let meals = [];
+                let foodToSave = {};
                 foodToSave.cal = inputCalories;
                 foodToSave.food = inputFood;
                 meals.push(foodToSave);
-                console.log(10);
                 localStorage.setItem(type, JSON.stringify(meals));
             } else {
-                const foodToSave = {};
+                let foodToSave = {};
                 foodToSave.cal = inputCalories;
                 foodToSave.food = inputFood;
                 currentMeal.push(foodToSave);
-                console.log(1000);
                 localStorage.setItem(type, JSON.stringify(currentMeal));
             }
             
-            // calRemaining = calRemaining - inputCalories + exerciseCalories;
+            calRemaining = calRemaining - inputCalories;
             //updates calories remaining
             $("#caloriesLeft").text(`Calories Remaining for Today: ${calRemaining}`);
             ///get items in local storage
@@ -116,6 +125,68 @@ $(document).ready(function () {
 
         }
     })
+
+
+    //function that saves exercise input, appends to exercise row, and adds calories to daily remaining
+    $(".exerciseSave").on("click", function () {
+        //get value of inputs
+        type = "exercise"
+        inputExercise = $(`#exercise`).val();
+        inputCalories = $(`#exerciseC`).val();
+        //change input box back into blanks
+        $('#exercise').val("");
+        $('#exerciseC').val("");
+        //makes sure inputs are not blank
+        if (inputExercise === "") {
+            displayMessage("Input cannot be blank");
+            setTimeout(function () {
+                $(`#exerciseMsg`).text("");
+            }, 1500);
+        } else if (inputCalories === "") {
+            displayMessage("Calories cannot be blank");
+            setTimeout(function () {
+                $(`#exerciseMsg`).text("");
+            }, 1500);
+        } else if (isNaN(inputCalories)) {
+            displayMessage("Calories must be a number");
+            setTimeout(function () {
+                $(`#exerciseMsg`).text("");
+            }, 1500);
+        } else {
+            displayMessage("Saved successfully");
+            setTimeout(function () {
+                $(`#exerciseMsg`).text("");
+            }, 1500);
+            // gets value and put into local storage
+            let currentMeal = JSON.parse(localStorage.getItem(type));
+            if(!currentMeal) {
+                let meals = [];
+                let foodToSave = {};
+                foodToSave.cal = inputCalories;
+                foodToSave.food = inputExercise;
+                meals.push(foodToSave);
+                localStorage.setItem(type, JSON.stringify(meals));
+            } else {
+                let foodToSave = {};
+                foodToSave.cal = inputCalories;
+                foodToSave.food = inputExercise;
+                currentMeal.push(foodToSave);
+                localStorage.setItem(type, JSON.stringify(currentMeal));
+            }
+            
+            calRemaining = calRemaining + parseInt(inputCalories);
+            //updates calories remaining
+            $("#caloriesLeft").text(`Calories Remaining for Today: ${calRemaining}`);
+            ///get items in local storage
+            renderFoodItems();
+
+        }
+    })
+
+
+
+
+
 
 
     function renderFoodItems() {
@@ -134,19 +205,38 @@ $(document).ready(function () {
         }
     }
 
-    
-    $(".clear").on("click", function(){
+
+    $(".clear").on("click", clearMeal);
+
+    function clearMeal(){
         type = $(this).attr('data-type');
         localStorage.removeItem(type);
         $(`#${type}Names`).html("");
+        //adds calories back that were cleared to remaining
+
+        // inputCalories = $(`#${type}B`).val();
+        // if(inputCalories = null){
+        //     inputCalories = 0;
+        // }
+        // console.log(inputCalories);
+        // inputExerciseCals = $("exerciseC").val();
+        // if(inputExerciseCals = null){
+        //     inputExerciseCals = 0;
+        // }
+        // console.log(inputExerciseCals);
+        // calRemaining = calRemaining + parseInt(inputCalories) - parseInt(inputExerciseCals);
+        // console.log(calRemaining);
+        // $("#caloriesLeft").text(`Calories Remaining for Today: ${calRemaining}`);
+        renderFoodItems();
+    }
+
     
-    
-    })
-});
+
+    });
 
 
 
 
 //todo
-//exercise function that adds calories
-//save date to localstorage
+//once cleared, add back calories
+//bmi saved to local storage
