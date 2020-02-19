@@ -56,15 +56,43 @@ $(document).ready(function () {
     $(".save").on("click", function () {
         //get value of inputs
         type = $(this).attr('data-type');
+        // if(type="exercise"){
+        //     const exercise = $("#exercise").val();
+        //     const exerciseCalories = parseInt($('#exerciseC').val());
+        //     if (exercise === "") {
+        //         displayMessage("Input cannot be blank");
+        //         setTimeout(function () {
+        //             $(`#${type}Msg`).text("");
+        //         }, 1500);
+        //     } else if (exerciseCalories === "") {
+        //         displayMessage("Calories cannot be blank");
+        //         setTimeout(function () {
+        //             $(`#${type}Msg`).text("");
+        //         }, 1500);
+
+        //     } else if (isNaN(exerciseCalories)) {
+        //         console.log("2")
+        //         displayMessage("Calories must be a number");
+        //         setTimeout(function () {
+        //             $(`#${type}Msg`).text("");
+        //         }, 1500);
+        //     } else {
+        //         displayMessage("Saved successfully");
+        //         setTimeout(function () {
+        //             $(`#${type}Msg`).text("");
+        //         }, 1500);
+        //     }
+        //     calRemaining = calRemaining + exerciseCalories;
+        // }
+
         const inputFood = $(`#${type}`).val();
-        const inputCalories = $(`#${type}B`).val();
-        const exerciseCalories = $('#exerciseC').val();
+        const inputCalories = parseInt($(`#${type}B`).val());
         
         //change input box back into blanks
         $(`#${type}`).val("");
         $(`#${type}B`).val("");
-        $('#exercise').val("");
-        $('#exerciseC').val("");
+        // $('#exercise').val("");
+        // $('#exerciseC').val("");
         //makes sure inputs are not blank
         if (inputFood === "") {
             displayMessage("Input cannot be blank");
@@ -77,11 +105,7 @@ $(document).ready(function () {
                 $(`#${type}Msg`).text("");
             }, 1500);
         } else if (isNaN(inputCalories)) {
-            displayMessage("Calories must be a number");
-            setTimeout(function () {
-                $(`#${type}Msg`).text("");
-            }, 1500);
-        } else if (isNaN(exerciseCalories)) {
+            console.log("1")
             displayMessage("Calories must be a number");
             setTimeout(function () {
                 $(`#${type}Msg`).text("");
@@ -108,7 +132,7 @@ $(document).ready(function () {
                 localStorage.setItem(type, JSON.stringify(currentMeal));
             }
             
-            calRemaining = calRemaining - inputCalories + exerciseCalories;
+            calRemaining = calRemaining - inputCalories;
             //updates calories remaining
             $("#caloriesLeft").text(`Calories Remaining for Today: ${calRemaining}`);
             ///get items in local storage
@@ -147,6 +171,8 @@ $(document).ready(function () {
 
 
 
-//todo
+//TODO
 //exercise function that adds calories
 //save date to localstorage
+//upon clearing, reset the calories remaining
+//create function that on new day, clears everything 
