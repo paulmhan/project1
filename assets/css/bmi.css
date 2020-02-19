@@ -146,12 +146,24 @@ body {
 
 .save {
     background-color: tomato;
+    
+    
+}
+
+.clear {
+    background-color: tomato;
+    
 }
 
 #caloriesLeft {
-
+    font-size: 24px;
 }
 
 #recommended {
-    
+    font-size: 24px;
+}
+
+.rowButtons {
+    position: relative;
+    left: 10px;
 }

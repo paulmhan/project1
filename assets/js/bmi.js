@@ -55,6 +55,7 @@ $(document).ready(function () {
     //function that saves both inputs and appends it into a list, once the day is over, the day is saved into a tab
     $(".save").on("click", function () {
         //get value of inputs
+        // console.log(100);
         type = $(this).attr('data-type');
         // if(type="exercise"){
         //     const exercise = $("#exercise").val();
@@ -105,7 +106,6 @@ $(document).ready(function () {
                 $(`#${type}Msg`).text("");
             }, 1500);
         } else if (isNaN(inputCalories)) {
-            console.log("1")
             displayMessage("Calories must be a number");
             setTimeout(function () {
                 $(`#${type}Msg`).text("");
@@ -123,12 +123,14 @@ $(document).ready(function () {
                 foodToSave.cal = inputCalories;
                 foodToSave.food = inputFood;
                 meals.push(foodToSave);
+                console.log(10);
                 localStorage.setItem(type, JSON.stringify(meals));
             } else {
                 const foodToSave = {};
                 foodToSave.cal = inputCalories;
                 foodToSave.food = inputFood;
                 currentMeal.push(foodToSave);
+                console.log(1000);
                 localStorage.setItem(type, JSON.stringify(currentMeal));
             }
             
