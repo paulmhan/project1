@@ -169,3 +169,7 @@ body {
     position: relative;
     left: 10px;
 }
+
+.exerciseSave {
+    background-color: tomato;
+}
