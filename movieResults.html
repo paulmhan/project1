@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MovieSearch</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="assets/css/movie.css">
+</head>
+
+<body>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="index.html" class="brand-logo">Movie Info</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="index.html">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    
+        <div class="container">
+                <div id ="movie" class="row"></div>  
+                           
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="./assets/js/movie.js"></script>
+    <script>
+
+function getMovie(id) {
+    let movieDiv = $("#movie");
+let corsUrl = `https://cors-anywhere.herokuapp.com/`;
+console.log(id);
+let queryURL = corsUrl + `https://www.omdbapi.com/?i=${id}&apikey=trilogy`;
+
+// Creating an AJAX call when search button is being clicked
+$.ajax({
+    url: queryURL,
+    method: "GET"
+}).then(function (response) {
+    console.log(response);
+
+    let output = '';
+    console.log(response.Title);
+    output += `
+        <div class="row">        
+        <div class = "col s4">
+                <img src = "${response.Poster}" class="thumbnail"></img>
+        </div>
+        <div class = "col s8">
+        <h2>${response.Title}</h2>
+        <ul class="list-group">
+        <li class="list-group-item"><strong>Genre:</strong> ${response.Genre}</li>
+        </ul>
+        </div>
+        </div>
+        <div class="row">
+        <h3>Plot</h3>
+        ${response.Plot}
+        <hr>
+        <a href="http://imdb.com/title/${response.imdbID} target="_blank" class ="btn-light">View IMDB</a>
+        <a href="movie.html" class="btn-light">Go Back To Search</a>
+        </div>
+        `;
+
+    movieDiv.html(output);
+});
+};
+
+getMovie(sessionStorage.getItem('movieId'))
+
+    </script>
+</body>
+
+</html>

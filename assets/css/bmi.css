@@ -1,15 +1,15 @@
 .header {
-    /* width: 100%; */
+    width: 100%;
     /* background-color: red; */
-    /* height: 30px; */
+    height: 30px;
 }
-/* 
+
 .container {
     width: 100%;
-    background-color: #ffcc33;
+    /* background-color: #ffcc33; */
     margin: auto;
     height:100%
-} */
+}
 
 .bmi{
     width:30%;
@@ -111,7 +111,6 @@ body {
     background-size: 100% 100%;
 }
 
-
 .header {
     /* height: 140px; */
     justify-content: left;
@@ -130,40 +129,4 @@ body {
 
 .content-body {
     padding: 20px 10px 10px 10px;
-}
-
-#date-tracker {
-    padding: 10px 0 0 0;
-}
-
-.nav-wrapper {
-    background-color: tomato;
-}
-
-.calculateBMI {
-    background-color: tomato;
-}
-
-.save {
-    background-color: tomato;
-    
-    
-}
-
-.clear {
-    background-color: tomato;
-    
-}
-
-#caloriesLeft {
-    font-size: 24px;
-}
-
-#recommended {
-    font-size: 24px;
-}
-
-.rowButtons {
-    position: relative;
-    left: 10px;
 }
