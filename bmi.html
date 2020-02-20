@@ -15,9 +15,11 @@
     <div class="container">
         <nav>
             <div class="nav-wrapper">
-                <a href="index.html" class="brand-logo center">Home</a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="bmi.html">BMI</a></li>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="bmi.html">BMI Tracker</a></li>
+                    <li><a href="index.html">Recipe Search</a></li>
+                    
                 </ul>
             </div>
         </nav>
@@ -28,22 +30,7 @@
         <p id="currentDay" class="lead"></p>
         <br>
 
-        <div class="card" id="date-tracker">
-            <div class="row">
-                <div class="col s2">
 
-                </div>
-                <div class="input-field col s8">
-                    <select>
-                        <option value="" disabled selected>Choose a date:</option>
-                    </select>
-                    <label>Date:</label>
-                </div>
-                <div class="col s2">
-
-                </div>
-            </div>
-        </div>
         <br>
 
         <div class="card content-body">
@@ -90,9 +77,9 @@
                         <p id="caloriesLeft"></p>
                     </div>
                     <br>
-                    
-                    
-                    
+
+
+
                     <br>
                     <div class="row">
                         <div id="breakfastMsg"></div>
@@ -126,10 +113,10 @@
                     </div>
 
 
-                    
+
                     <div class="divider"></div>
                     <div class="row">
-                            <div id="lunchMsg"></div>
+                        <div id="lunchMsg"></div>
                     </div>
                     <div class="row">
                         <h2>Lunch</h2>
@@ -144,15 +131,14 @@
                         </div>
                         <div class="col s4">
                             <div class="row rowButtons">
-                                <button class="col s5 btn waves-effect waves-light save"
-                                    data-type="lunch">Save</button>
+                                <button class="col s5 btn waves-effect waves-light save" data-type="lunch">Save</button>
                                 <div class="col s1"></div>
                                 <button class="col s5 btn waves-effect waves-light clear"
                                     data-type='lunch'>Clear</button>
                                 <div class="col s1"></div>
                             </div>
                         </div>
-                        
+
 
                     </div>
                     <div class="card">
@@ -188,7 +174,7 @@
                                 <div class="col s1"></div>
                             </div>
                         </div>
-                        
+
 
                     </div>
                     <div class="card">
@@ -202,8 +188,8 @@
 
                     <div class="divider"></div>
                     <div class="row">
-                            <div id="snacksMsg"></div>
-                        </div>
+                        <div id="snacksMsg"></div>
+                    </div>
                     <div class="row">
                         <h2>Snacks</h2>
                         <br>
@@ -225,7 +211,7 @@
                                 <div class="col s1"></div>
                             </div>
                         </div>
-                        
+
 
                     </div>
                     <div class="card">
@@ -238,8 +224,8 @@
 
                     <div class="divider"></div>
                     <div class="row">
-                            <div id="exerciseMsg"></div>
-                        </div>
+                        <div id="exerciseMsg"></div>
+                    </div>
 
                     <div class="row">
                         <h2>Exercise</h2>
@@ -254,6 +240,7 @@
                         </div>
                         <div class="col s4">
                             <div class="row rowButtons">
+                                <!-- Does this class need to be different from the other buttons? -->
                                 <button class="col s5 btn waves-effect waves-light exerciseSave"
                                     data-type="exercise">Save</button>
                                 <div class="col s1"></div>
@@ -262,7 +249,7 @@
                                 <div class="col s1"></div>
                             </div>
                         </div>
-                        
+
 
                     </div>
                     <div class="card">
