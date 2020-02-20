@@ -6,8 +6,13 @@
 .col, .s3 {
     height: 400px;
 }
-
+​
 img {
     height: 240px;
 }
+}
+.movieImg {
+    margin-top: 50px;
+    width: 70%;
+    height: 70%;
 }

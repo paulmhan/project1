@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+​
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="assets/css/movie.css">
 </head>
-
+​
 <body>
     <nav>
         <div class="nav-wrapper">
@@ -19,7 +19,7 @@
             </ul>
         </div>
     </nav>
-
+​
     <div class="container" id="movieSearch">
         <div class="jumbotron">
             <h3 class="center">Search For Any Movie</h3>
@@ -28,8 +28,12 @@
                     <input type="text" class="validate" id="searchText">
                     <label for="searchText">Search movies</label>
                 </div>
-                <input id="searchMovie" class="btn btn-light saveButton" type="submit" value="Search">
+                <button id="searchMovie" class="btn btn-light saveButton" type="button">Search</button>
+                <button type="button" class="btn btn-light clearButton">Clear Results</button>
             </form>   
+        </div>
+        <div id="msg">
+            <h6></h6>
         </div>
         <div class="container">
                 <div id ="movies" class="row"></div>  
@@ -44,8 +48,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="./assets/js/movie.js"></script>
     
-
-
+​
+​
 </body>
-
+​
 </html>

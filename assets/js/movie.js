@@ -1,27 +1,30 @@
 $(document).ready(function () {
-    function movieSelected() {
-        let selectedMovieId = sessionStorage.getItem('movieId');
-        console.log(selectedMovieId);        
+    function movieSelected() {    
         window.location.href = 'movieResults.html';
         return false;
     };
-
+​
     $(document).on("click", ".movieDetails", function (event) {
         let id = $(this).attr("data-id");
-        console.log(id);
         sessionStorage.setItem('movieId', id);
         movieSelected();
     });
-
+​
     $("#searchMovie").on("click", function (event) {
         event.preventDefault();
+        $('#movies').show();
         let searchText = $("#searchText").val().trim();
         getMovies(searchText);
     });
-
+​
+    $(".clearButton").on("click", function (event) {
+        $("#searchText").val("");
+        $('#movies').empty();
+        $('#msg').empty();
+       
+      });
     let moviesDiv = $("#movies");
     
-
     function getMovies(searchText) {
         let corsUrl = `https://cors-anywhere.herokuapp.com/`;
         let queryURL = corsUrl + `https://www.omdbapi.com/?s=${searchText}&apikey=trilogy`;
@@ -30,9 +33,8 @@ $(document).ready(function () {
             url: queryURL,
             method: "GET"
         }).then(function (response) {
-            console.log(response);
-            if (response.Search.length === 0) {
-                msg.text("Sorry! No movies found! Try a different search word");
+            if (response.Response === "False") {
+                $("#msg").text("Sorry! No movies found! Try searching for a specific movie");
             }
             let output = '';
             for (let i = 0; i < response.Search.length; i++) {
@@ -50,8 +52,4 @@ $(document).ready(function () {
             moviesDiv.html(output);
         });
     }
-
-
-
 });
-
