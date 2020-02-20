@@ -16,3 +16,8 @@ img {
     width: 70%;
     height: 70%;
 }
+
+body {
+    background-image: url("../images/popcorn-backdrop.webp");
+    background-size: 100%;
+};

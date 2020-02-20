@@ -13,17 +13,20 @@
 ​
 
 <body>
-    <nav>
-        <div class="nav-wrapper">
-            <a href="index.html" class="brand-logo">Movie Info</a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="index.html">About</a></li>
-            </ul>
-        </div>
-    </nav>
-    ​
-    <div class="container" id="movieSearch">
-        <div class="jumbotron">
+    <div class="container">
+        <nav>
+            <div class="nav-wrapper">
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="index.html">Recipe Search</a></li>
+                    <li><a href="bmi.html">BMI Tracker</a></li>
+                    <li><a href="movie.html">Movie Search</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="card content-body">
+            <div class="jumbotron" id="movieSearch">
             <h3 class="center">Search For Any Movie</h3>
             <form id="searchForm">
                 <div class="input-field">
@@ -42,6 +45,8 @@
         </div>
     </div>
     </div>
+        </div>
+        
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
