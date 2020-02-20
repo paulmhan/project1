@@ -1,0 +1,15 @@
+
+
+body {
+    background-image: url("../images/orange-gradient-backdrop.svg");
+    background-size: 100%;
+}
+
+#header {
+    justify-content: left;
+    font-size: 40px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    -webkit-text-stroke: 1px black;
+}

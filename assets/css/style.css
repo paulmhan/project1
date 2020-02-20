@@ -1,13 +1,15 @@
 body {
-    background-image: url("../images/kitchen.jpg");
-    background-size: 100% 100%;
+    background-image: url("../images/alt-veggie-backdrop1-edited.jpg");
+    background-size: 100%;
 }
 
 #header {
     justify-content: left;
     font-size: 40px;
     font-weight: bold;
-    color: tomato;
+    color: white;
+    text-align: center;
+    -webkit-text-stroke: 1px black;
 }
 
 #footer {
