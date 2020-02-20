@@ -1,6 +1,6 @@
-$(document).ready(function () {
+
     $("#currentDay").text(moment().format('MMMM Do' + ',' + ' YYYY'));
-    $('select').formSelect();
+    
     renderFoodItems();
     let bmi;
     let recCal;
@@ -232,8 +232,4 @@ $(document).ready(function () {
         
 
         renderFoodItems();
-    }
-
-    
-
-    });
+    };
