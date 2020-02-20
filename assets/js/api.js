@@ -14,7 +14,7 @@ $(document).ready(function () {
   let dietOptions = $(".dietOptions");
   // on window load, remove the search results div
   $(window).on('load', function () {
-    $('#searchResults').remove();
+    // $('#searchResults').remove();
   });
   // function to create rows for the recipe search results based on the response
   function createRow(response, i) {
@@ -31,9 +31,11 @@ $(document).ready(function () {
     let proteinLi = $("<li>").text(`Protein: ${Math.floor(response.hits[i].recipe.totalNutrients.PROCNT.quantity)}g`);
     let carbsLi = $("<li>").text(`Carbs: ${Math.floor(response.hits[i].recipe.totalNutrients.CHOCDF.quantity)}g`);
     let fatLi = $("<li>").text(`Fat: ${Math.floor(response.hits[i].recipe.totalNutrients.FAT.quantity)}g`);
+    let sugarsLi = $("<li>").text(`Sugars: ${Math.floor(response.hits[i].recipe.totalNutrients.SUGAR.quantity)}g`);
+    let fiberLi = $("<li>").text(`Fiber: ${Math.floor(response.hits[i].recipe.totalNutrients.FIBTG.quantity)}g`);
 
     // Append the newly created table data to the table row
-    tRow.append(imageTd, qtyTd, titleTd, energyTd, proteinLi, carbsLi, fatLi);
+    tRow.append(imageTd, qtyTd, titleTd, energyTd, proteinLi, carbsLi, fatLi, sugarsLi, fiberLi);
     // Append the table row to the table body
     $("tbody").append(tRow);
   };
