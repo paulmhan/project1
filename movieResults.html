@@ -20,11 +20,9 @@
         </div>
     </nav>
 
-    
-        <div class="container">
-                <div id ="movie" class="row"></div>  
-                           
-        </div>
+    <div class="container">
+        <div id="movie" class="row"></div>
+    </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -35,47 +33,52 @@
     <script src="./assets/js/movie.js"></script>
     <script>
 
-function getMovie(id) {
-    let movieDiv = $("#movie");
-let corsUrl = `https://cors-anywhere.herokuapp.com/`;
-console.log(id);
-let queryURL = corsUrl + `https://www.omdbapi.com/?i=${id}&apikey=trilogy`;
+        function getMovie(id) {
+            let movieDiv = $("#movie");
+            let corsUrl = `https://cors-anywhere.herokuapp.com/`;
+            let queryURL = corsUrl + `https://www.omdbapi.com/?i=${id}&apikey=trilogy`;
 
-// Creating an AJAX call when search button is being clicked
-$.ajax({
-    url: queryURL,
-    method: "GET"
-}).then(function (response) {
-    console.log(response);
+            // Creating an AJAX call when More details button is being clicked
+            $.ajax({
+                url: queryURL,
+                method: "GET"
+            }).then(function (response) {
 
-    let output = '';
-    console.log(response.Title);
-    output += `
-        <div class="row">        
-        <div class = "col s4">
-                <img src = "${response.Poster}" class="thumbnail"></img>
-        </div>
-        <div class = "col s8">
-        <h2>${response.Title}</h2>
-        <ul class="list-group">
-        <li class="list-group-item"><strong>Genre:</strong> ${response.Genre}</li>
-        </ul>
-        </div>
-        </div>
-        <div class="row">
-        <h3>Plot</h3>
-        ${response.Plot}
-        <hr>
-        <a href="http://imdb.com/title/${response.imdbID} target="_blank" class ="btn-light">View IMDB</a>
-        <a href="movie.html" class="btn-light">Go Back To Search</a>
-        </div>
+                let output = '';
+                output += `
+                        <div class="row">        
+                            <div class = "col s4">
+                                <img src = "${response.Poster}" class ="movieImg"></img>
+                            </div>
+                            <div class = "col s8">
+                                <h2>${response.Title}</h2>
+                                <ul class="list-group">
+                                    <h6><li class="list"><strong>Genre:</strong> ${response.Genre}</li></h6>
+                                    <h6><li class="list"><strong>Released:</strong> ${response.Released}</li></h6>
+                                    <h6><li class="list"><strong>Rated:</strong> ${response.Rated}</li></h6>
+                                    <h6><li class="list"><strong>Imdb Rating:</strong> ${response.imdbRating}</li></h6>
+                                    <h6><li class="list"><strong>Director:</strong> ${response.Director}</li></h6>
+                                    <h6><li class="list"><strong>Writer:</strong> ${response.Writer}</li></h6>
+                                    <h6><li class="list"><strong>Actors:</strong> ${response.Actors}</li></h6>
+                                    <h6><li class="list"><strong>Run time:</strong> ${response.Runtime}</li></h6>
+                                    <h6><li class="list"><strong>Awards:</strong> ${response.Awards}</li></h6>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <h3>Plot</h3>
+                            <h6>${response.Plot}</h6>
+                            <hr>
+                        <a href="https://www.imdb.com/title/${response.imdbID}" target="_blank" class ="btn btn-light">View IMDB</a>
+                        <a href="movie.html" class="btn btn-light">Go Back To Search</a>
+                        </div>
         `;
 
-    movieDiv.html(output);
-});
-};
+                movieDiv.html(output);
+            });
+        };
 
-getMovie(sessionStorage.getItem('movieId'))
+        getMovie(sessionStorage.getItem('movieId'))
 
     </script>
 </body>
