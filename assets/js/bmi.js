@@ -67,7 +67,7 @@ $(".save").on("click", function () {
     $('#exercise').val("");
     $('#exerciseC').val("");
     //makes sure inputs are not blank
-    if(bmi === undefined){
+    if (bmi === undefined) {
         displayMessage("Please input you BMI first.");
         setTimeout(function () {
             $(`#${type}Msg`).text("");
@@ -96,7 +96,7 @@ $(".save").on("click", function () {
         }, 1500);
         // gets value and put into local storage
         let currentMeal = JSON.parse(localStorage.getItem(type));
-        if(!currentMeal) {
+        if (!currentMeal) {
             let meals = [];
             let foodToSave = {};
             foodToSave.cal = inputCalories;
@@ -150,7 +150,7 @@ $(".exerciseSave").on("click", function () {
         }, 1500);
         // gets value and put into local storage
         let currentMeal = JSON.parse(localStorage.getItem(type));
-        if(!currentMeal) {
+        if (!currentMeal) {
             let meals = [];
             let foodToSave = {};
             foodToSave.cal = inputCalories;
@@ -184,7 +184,7 @@ function renderFoodItems() {
     }
 }
 $(".clear").on("click", clearMeal);
-function clearMeal(){
+function clearMeal() {
     type = $(this).attr('data-type');
     // let something = JSON.parse(localStorage.getItem(type));
     // console.log(something);

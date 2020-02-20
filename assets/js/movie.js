@@ -3,20 +3,20 @@ $(document).ready(function () {
         window.location.href = 'movieResults.html';
         return false;
     };
-​
+
     $(document).on("click", ".movieDetails", function (event) {
         let id = $(this).attr("data-id");
         sessionStorage.setItem('movieId', id);
         movieSelected();
     });
-​
+
     $("#searchMovie").on("click", function (event) {
         event.preventDefault();
         $('#movies').show();
         let searchText = $("#searchText").val().trim();
         getMovies(searchText);
     });
-​
+
     $(".clearButton").on("click", function (event) {
         $("#searchText").val("");
         $('#movies').empty();
