@@ -3,91 +3,69 @@
     background-color: red;
     height: 30px;
 }
-
 .container {
     width: 100%;
     background-color: #ffcc33;
     margin: auto;
     height:100%
-} */
-
+}  */
 .bmi{
     width:30%;
     float:left;
     height: 100%;
     border: 1px solid black; 
-
 }
-
 .food-diary{
     width: 70%;
     float: left;
     height: 100%;
     border: 1px solid black;
-
 }
-
 .inputBMI{
     text-align:center;
-    
 }
-
 #weight{
     text-align:center;
 }
-
 #feet{
     text-align:center;
 }
-
 #inches{
     text-align:center;
 }
-
 .infoBMI{
     text-align:center;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size:20px;
 }
-
 .yourBMI{
     font-size:50px;
 }
-
 h1{
     font-size:40px;
     text-align: center;
-
-
 }
-
 h2{
     font-size: 20px;
     margin-left:10px;
 }
-
 .section{
     display:inline-block;
 }
-
 .calories{
     float:right;
     width:50%;
 }
-
 .breakfast{
     float:left;
     width:50%;
 }
-
 .save{
     float:right;
 }
-
 .row{
     height:100%;
 }
-
 #currentDay{
     text-align:center;
     color: white;
@@ -95,81 +73,60 @@ h2{
     font-weight: bold;
     font-size: 24px;
 }
-
 p{
     text-align: center;
 }
-
 .yourBMI {
     position: relative;
     top: 20px;
 }
-
 #BMI-header {
     text-align: center;
     font-size: 24px;
 }
-
 body {
     background-image: url("../images/alt-veggie-backdrop1-edited.jpg");
     background-size: 100%;
 }
-
-
 .header {
     justify-content: left;
     font-size: 40px;
     font-weight: bold;
     color: white;
     -webkit-text-stroke: 1px black;
-    
 }
-
 #yourBMItext, .infoBMI {
     position: relative;
     top: 20px;
 }
-
 .content-body {
     padding: 20px 10px 10px 10px;
 }
-
 #date-tracker {
     padding: 10px 0 0 0;
 }
-
 .nav-wrapper {
     background-color: tomato;
 }
-
 .calculateBMI {
     background-color: tomato;
 }
-
 .save {
     background-color: tomato;
-    
-    
 }
-
 .clear {
     background-color: tomato;
-    
 }
-
 #caloriesLeft {
     font-size: 24px;
 }
-
 #recommended {
     font-size: 24px;
 }
-
 .rowButtons {
     position: relative;
     left: 10px;
 }
-
 .exerciseSave {
     background-color: tomato;
 }
