@@ -8,6 +8,7 @@ $(document).ready(function () {
     let type;
     let inputFood;
     let inputCalories;
+    let inputeExercise;
     let midnight = "0:00:00"
     
 
@@ -68,6 +69,7 @@ $(document).ready(function () {
     }
 
 
+
     //function that saves food input, appends to specific mealrow, and then subtracts calories to daily remaining
     $(".save").on("click", function () {
         //get value of inputs
@@ -80,6 +82,13 @@ $(document).ready(function () {
         // $('#exercise').val("");
         // $('#exerciseC').val("");
         //makes sure inputs are not blank
+        if(bmi === undefined){
+            displayMessage("Please input you BMI first.");
+            setTimeout(function () {
+                $(`#${type}Msg`).text("");
+            }, 1500);
+            return null
+        }
         if (inputFood === "") {
             displayMessage("Input cannot be blank");
             setTimeout(function () {
@@ -106,6 +115,7 @@ $(document).ready(function () {
                 let meals = [];
                 let foodToSave = {};
                 foodToSave.cal = inputCalories;
+                // console.log()
                 foodToSave.food = inputFood;
                 meals.push(foodToSave);
                 localStorage.setItem(type, JSON.stringify(meals));
@@ -210,33 +220,24 @@ $(document).ready(function () {
 
     function clearMeal(){
         type = $(this).attr('data-type');
+        let something = JSON.parse(localStorage.getItem(type));
+        console.log(something);
+        for(let i =0; i < something.lenth; i++){
+            let calorie = parseInt(something[i].cal);
+            // calRemaining = calRemaining + parseInt(inputCalories);
+            //updates calories remaining
+            // $("#caloriesLeft").text(`Calories Remaining for Today: ${calRemaining}`);
+            console.log(calorie);
+        }
         localStorage.removeItem(type);
         $(`#${type}Names`).html("");
         //adds calories back that were cleared to remaining
 
-        // inputCalories = $(`#${type}B`).val();
-        // if(inputCalories = null){
-        //     inputCalories = 0;
-        // }
-        // console.log(inputCalories);
-        // inputExerciseCals = $("exerciseC").val();
-        // if(inputExerciseCals = null){
-        //     inputExerciseCals = 0;
-        // }
-        // console.log(inputExerciseCals);
-        // calRemaining = calRemaining + parseInt(inputCalories) - parseInt(inputExerciseCals);
-        // console.log(calRemaining);
-        // $("#caloriesLeft").text(`Calories Remaining for Today: ${calRemaining}`);
+        
+
         renderFoodItems();
     }
 
     
 
     });
-
-
-
-
-//todo
-//once cleared, add back calories
-//bmi saved to local storage
