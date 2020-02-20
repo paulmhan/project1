@@ -13,13 +13,14 @@
 ​
 
 <body>
-        
+
 
     <div class="container">
-            
-        <div id="movie" class="row"></div>
+        <div class="card content-body" id="resultCard">
+            <div id="movie" class="row"></div>
+        </div>
     </div>
-    </div>
+
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
@@ -65,8 +66,8 @@
                             <h3>Plot</h3>
                             <h6>${response.Plot}</h6>
                             <hr>
-                        <a href="https://www.imdb.com/title/${response.imdbID}" target="_blank" class ="btn btn-light">View IMDB</a>
-                        <a href="movie.html" class="btn btn-light">Go Back To Search</a>
+                        <a href="https://www.imdb.com/title/${response.imdbID}" target="_blank" class ="btn btn-light imdb">View IMDB</a>
+                        <a href="movie.html" class="btn btn-light back">Go Back To Search</a>
                         </div>
         `;
 

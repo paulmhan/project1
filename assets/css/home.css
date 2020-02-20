@@ -13,3 +13,8 @@ body {
     text-align: center;
     -webkit-text-stroke: 1px black;
 }
+
+i {
+    height: 200px;
+    width: 200px;
+}

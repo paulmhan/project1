@@ -114,9 +114,7 @@ body {
 .save {
     background-color: tomato;
 }
-.clear {
-    background-color: tomato;
-}
+
 #caloriesLeft {
     font-size: 24px;
 }
