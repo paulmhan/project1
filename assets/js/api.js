@@ -2,7 +2,7 @@
 $(document).ready(function () {
   $('#multi').formSelect();
   $('#multi2').formSelect();
-// Create all the elements
+  // Create all the elements
   let searchTerm = $("#searchTerm");
   let inputFields = $(".input-fields");
   let calories = $("#calories");
@@ -12,11 +12,11 @@ $(document).ready(function () {
   let clearButton = $(".clearButton");
   let healthOptions = $(".healthOptions");
   let dietOptions = $(".dietOptions");
-// on window load, remove the search results div
+  // on window load, remove the search results div
   $(window).on('load', function () {
     $('#searchResults').remove();
-});
-// function to create rows for the recipe search results based on the response
+  });
+  // function to create rows for the recipe search results based on the response
   function createRow(response, i) {
     let tRow = $("<tr>");
     let imageUrl = response.hits[i].recipe.image;
@@ -37,7 +37,9 @@ $(document).ready(function () {
     // Append the table row to the table body
     $("tbody").append(tRow);
   };
-// on clicking the clear search results button, empty the search results, empty the message div and remove, clear all the input fields
+  // on clicking the clear search results button, empty the search results, empty the message div and remove, clear all the input fields
+
+
   clearButton.on("click", function (event) {
     $('#input-fields').show();
     $('#searchResults').empty();
@@ -45,9 +47,10 @@ $(document).ready(function () {
     $('#searchTerm').val("");
     $('#msg').empty();
     $('#msg').remove();
-    });
-  
-// function to execute on clicking the search button
+    $('.select-dropdown').val('');
+  });
+
+  // function to execute on clicking the search button
   search.on("click", function (event) {
     event.preventDefault();
     $('#searchResults').show();
@@ -78,16 +81,16 @@ $(document).ready(function () {
     if (searchKey === "") {
       msg.text("You did not enter any search word!! Type the ingredient name to search for the recipes you are looking for.")
     }
-    if(dietKey === '' && healthKey === '') {
-      queryURL = corsUrl + `https://api.edamam.com/search?q=${searchKey}&app_id=84612d9d&app_key=a9ac302b044be5faf802625e3e3dbf9a`; 
+    if (dietKey === '' && healthKey === '') {
+      queryURL = corsUrl + `https://api.edamam.com/search?q=${searchKey}&app_id=84612d9d&app_key=a9ac302b044be5faf802625e3e3dbf9a`;
     } else if (dietKey === '' && !!healthKey) {
-      queryURL = corsUrl + `https://api.edamam.com/search?q=${searchKey}&health=${healthKey}app_id=84612d9d&app_key=a9ac302b044be5faf802625e3e3dbf9a`;  
+      queryURL = corsUrl + `https://api.edamam.com/search?q=${searchKey}&health=${healthKey}app_id=84612d9d&app_key=a9ac302b044be5faf802625e3e3dbf9a`;
     } else if (!!dietKey && healthKey === '') {
-      queryURL = corsUrl + `https://api.edamam.com/search?q=${searchKey}&diet=${dietKey}app_id=84612d9d&app_key=a9ac302b044be5faf802625e3e3dbf9a`;  
+      queryURL = corsUrl + `https://api.edamam.com/search?q=${searchKey}&diet=${dietKey}app_id=84612d9d&app_key=a9ac302b044be5faf802625e3e3dbf9a`;
     } else {
       queryURL = corsUrl + `https://api.edamam.com/search?q=${searchKey}&diet=${dietKey}health=${healthKey}app_id=84612d9d&app_key=a9ac302b044be5faf802625e3e3dbf9a`;
     }
-    
+
     console.log(queryURL);
 
     $.ajax({
@@ -95,7 +98,7 @@ $(document).ready(function () {
       url: queryURL
     }).then(function (response) {
       console.log(response);
-      if (response.hits.length===0) {
+      if (response.hits.length === 0) {
         msg.text("Sorry! No recipes found. Try specific ingredient names such as tomato, garlic, chicken etc");
       }
       for (let i = 0; i < response.hits.length; i++) {
