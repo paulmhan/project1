@@ -22,10 +22,6 @@ $(document).ready(function () {
     }, 1000);
 
 
-
-
-
-
     //function that calculates BMI based off weight and height
     $(".calculateBMI").on("click", function () {
         let weight = $("#weight").val();
@@ -220,18 +216,18 @@ $(document).ready(function () {
 
     function clearMeal(){
         type = $(this).attr('data-type');
-        let something = JSON.parse(localStorage.getItem(type));
-        console.log(something);
-        for(let i =0; i < something.lenth; i++){
-            let calorie = parseInt(something[i].cal);
-            // calRemaining = calRemaining + parseInt(inputCalories);
-            //updates calories remaining
-            // $("#caloriesLeft").text(`Calories Remaining for Today: ${calRemaining}`);
-            console.log(calorie);
-        }
+        // let something = JSON.parse(localStorage.getItem(type));
+        // console.log(something);
+        // for(let i =0; i < something.lenth; i++){
+        //     let calorie = parseInt(something[i].cal);
+        //     // calRemaining = calRemaining + parseInt(inputCalories);
+        //     //updates calories remaining
+        //     // $("#caloriesLeft").text(`Calories Remaining for Today: ${calRemaining}`);
+        //     console.log(calorie);
+        // }
         localStorage.removeItem(type);
         $(`#${type}Names`).html("");
-        //adds calories back that were cleared to remaining
+
 
         
 
