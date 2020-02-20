@@ -20,20 +20,10 @@
         </div>
     </nav>
 
-    <div class="container" id="movieSearch">
-        <div class="jumbotron">
-            <h3 class="center">Search For Any Movie</h3>
-            <form id="searchForm">
-                <div class="input-field">
-                    <input type="text" class="validate" id="searchText">
-                    <label for="searchText">Search movies</label>
-                </div>
-                <input id="searchMovie" class="btn btn-light saveButton" type="submit" value="Search">
-            </form>   
-        </div>
+    
         <div class="container">
-                <div id ="movies" class="row"></div>  
-                </div>             
+                <div id ="movie" class="row"></div>  
+                           
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -43,9 +33,51 @@
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="./assets/js/movie.js"></script>
-    
+    <script>
 
+function getMovie(id) {
+    let movieDiv = $("#movie");
+let corsUrl = `https://cors-anywhere.herokuapp.com/`;
+console.log(id);
+let queryURL = corsUrl + `https://www.omdbapi.com/?i=${id}&apikey=trilogy`;
 
+// Creating an AJAX call when search button is being clicked
+$.ajax({
+    url: queryURL,
+    method: "GET"
+}).then(function (response) {
+    console.log(response);
+
+    let output = '';
+    console.log(response.Title);
+    output += `
+        <div class="row">        
+        <div class = "col s4">
+                <img src = "${response.Poster}" class="thumbnail"></img>
+        </div>
+        <div class = "col s8">
+        <h2>${response.Title}</h2>
+        <ul class="list-group">
+        <li class="list-group-item"><strong>Genre:</strong> ${response.Genre}</li>
+        </ul>
+        </div>
+        </div>
+        <div class="row">
+        <h3>Plot</h3>
+        ${response.Plot}
+        <hr>
+        <a href="http://imdb.com/title/${response.imdbID} target="_blank" class ="btn-light">View IMDB</a>
+        <a href="movie.html" class="btn-light">Go Back To Search</a>
+        </div>
+        `;
+
+    movieDiv.html(output);
+});
+};
+
+getMovie(sessionStorage.getItem('movieId'))
+
+    </script>
 </body>
 
 </html>
