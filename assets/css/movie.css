@@ -1,0 +1,13 @@
+#movieSearch {
+    margin-top: 200px;
+    
+}
+@media(min-width:960px){
+.col, .s3 {
+    height: 400px;
+}
+
+img {
+    height: 240px;
+}
+}
