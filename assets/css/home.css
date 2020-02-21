@@ -14,7 +14,12 @@ body {
     -webkit-text-stroke: 1px black;
 }
 
-i {
+#fork-spoon {
+    height: 200px;
+    width: 200px;
+}
+
+#film {
     height: 200px;
     width: 200px;
 }
