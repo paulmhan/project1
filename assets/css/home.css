@@ -63,3 +63,20 @@ footer {
     text-align: center;
     font-family: 'Dancing Script', cursive;
 }
+
+.navbar {
+    float: right;
+    position: relative;
+    left: 150px;
+}
+
+.nav-element {
+    display: inline-block;
+    margin: 10px;
+    color: white;
+    background-color: transparent;
+}
+
+.nav-element:hover {
+    color: black;
+}
