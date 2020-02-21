@@ -22,7 +22,7 @@ $(document).ready(function () {
     let imageUrl = response.hits[i].recipe.image;
     let recipeImage = $("<img>");
     let recipeImageLink = $("<a>");
-    recipeImageLink.attr("href", response.hits[i].recipe.shareAs)
+    recipeImageLink.attr({"href": response.hits[i].recipe.shareAs, "target":"_blank"});
     recipeImage.attr({ "src": imageUrl, "alt": "recipe image", "width": 100, "height": 100 });
     let imageTd = $("<td>").append(recipeImageLink.append(recipeImage));
     let qtyTd = $("<td>").text(`${response.hits[i].recipe.yield} servings`);
