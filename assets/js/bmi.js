@@ -8,6 +8,7 @@ let inputFood;
 let inputCalories;
 let inputeExercise;
 let midnight = "0:00:00"
+
 // reset function
 setInterval(function () {
     let now = moment().format("H:mm:ss");
@@ -16,13 +17,14 @@ setInterval(function () {
         renderFoodItems();
     }
 }, 1000);
+
 //function that calculates BMI based off weight and height
 $(".calculateBMI").on("click", function () {
     let weight = $("#weight").val();
     let weight2 = weight * 703;
     let feet = $("#feet").val() * 12;
     let inch = $("#inches").val() * 1;
-    if (weight == "" || feet == "" || inch == "") {
+    if (isNaN(weight) || isNaN(feet)|| isNaN(inch)) {
         //hits if statement if they put 0 for inches, need to fix
         $(".yourBMI").text("Please Input a Number")
     }
@@ -51,10 +53,12 @@ $(".calculateBMI").on("click", function () {
         $("#caloriesLeft").text(`Calories Remaining for Today: ${calRemaining}`);
     }
 })
+
 //displays message based off inputs
 function displayMessage(message) {
     $(`#${type}Msg`).text(message);
 }
+
 //function that saves food input, appends to specific mealrow, and then subtracts calories to daily remaining
 $(".save").on("click", function () {
     //get value of inputs
@@ -65,7 +69,7 @@ $(".save").on("click", function () {
     $(`#${type}`).val("");
     $(`#${type}B`).val("");
     $('#exercise').val("");
-    $('#exerciseC').val("");
+    $('#exerciseC').val("");    
     //makes sure inputs are not blank
     if(bmi === undefined){
         displayMessage("Please input you BMI first.");
@@ -118,6 +122,7 @@ $(".save").on("click", function () {
         renderFoodItems();
     }
 })
+
 //function that saves exercise input, appends to exercise row, and adds calories to daily remaining
 $(".exerciseSave").on("click", function () {
     //get value of inputs
@@ -171,6 +176,7 @@ $(".exerciseSave").on("click", function () {
         renderFoodItems();
     }
 })
+
 function renderFoodItems() {
     for (let key in localStorage) {
         if (localStorage.hasOwnProperty(key)) {
@@ -183,6 +189,7 @@ function renderFoodItems() {
         }
     }
 }
+
 $(".clear").on("click", clearMeal);
 function clearMeal(){
     type = $(this).attr('data-type');
