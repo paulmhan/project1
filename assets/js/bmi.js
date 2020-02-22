@@ -32,7 +32,7 @@ $(".calculateBMI").on("click", function () {
         let height = feet + inch;
         bmi = weight2 / Math.pow(height, 2);
         bmi = Math.round(10 * bmi) / 10;
-        // localStorage.setItem("bmi",bmi);
+        
         $("#yourBMItext").text(bmi);
         $(".infoBMI").css("display", "block");
         //if statement that will display recommended calories on top of food diary section, based off user's bmi                 
@@ -104,7 +104,7 @@ $(".save").on("click", function () {
             let meals = [];
             let foodToSave = {};
             foodToSave.cal = inputCalories;
-            // console.log()
+            
             foodToSave.food = inputFood;
             meals.push(foodToSave);
             localStorage.setItem(type, JSON.stringify(meals));
