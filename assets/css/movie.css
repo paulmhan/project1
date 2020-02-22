@@ -1,18 +1,42 @@
 #movieSearch {
-    margin-top: 200px;
-    
-}
-@media(min-width:960px){
-.col, .s3 {
-    height: 400px;
+    margin-top: 200px; 
 }
 
-img {
-    height: 240px;
-}
-}
 .movieImg {
     margin-top: 50px;
     width: 70%;
     height: 70%;
 }
+@media(min-width:960px){
+    .col, .s3 {
+        height: 400px;
+    }
+    ​
+    img {
+        height: 240px;
+    }
+    }
+    .movieImg {
+        margin-top: 50px;
+        width: 70%;
+        height: 70%;
+    }
+    body {
+        background-image: url("../images/popcorn-backdrop.webp");
+        background-size: 100%;
+    }
+    .content-body {
+        padding: 10px 20px 10px 20px;
+    }
+    .saveButton {
+        background-color: tomato;
+    }
+    .movieDetails {
+        background-color: tomato;
+    }
+    .imdb {
+        background-color: tomato;
+    }
+    .nav-wrapper {
+        background-color: tomato;
+    }
