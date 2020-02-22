@@ -11,35 +11,38 @@
 </head>
 
 <body>
-    <nav>
-        <div class="nav-wrapper">
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="home.html">Home</a></li>
-                <li><a href="index.html">Recipe Search</a></li>
-                <li><a href="movie.html">Movie Search</a></li>
-                <li><a href="bmi.html">Calorie Tracker</a></li>
-            </ul>
-        </div>
-    </nav>
+    <div class = "container">
 
-    <div class="container" id="movieSearch">
-        <div class="jumbotron">
-            <h3 class="center">Search For Any Movie</h3>
-            <form id="searchForm">
-                <div class="input-field">
-                    <input type="text" class="validate" id="searchText">
-                    <label for="searchText">Search movies</label>
-                </div>
-                <button id="searchMovie" class="btn btn-light saveButton" type="button">Search</button>
-                <button type="button" class="btn btn-light clearButton">Clear Results</button>
-            </form>   
-        </div>
-        <div id="msg">
-            <h6></h6>
-        </div>
-        <div class="container">
-                <div id ="movies" class="row"></div>  
-                </div>             
+        <nav>
+            <div class="nav-wrapper">
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="index.html">Recipe Search</a></li>
+                    <li><a href="movie.html">Movie Search</a></li>
+                    <li><a href="bmi.html">Calorie Tracker</a></li>
+                </ul>
+            </div>
+        </nav>
+    
+        <div class="container" id="movieSearch">
+            <div class="jumbotron">
+                <h3 class="center">Search For Any Movie</h3>
+                <form id="searchForm">
+                    <div class="input-field">
+                        <input type="text" class="validate" id="searchText">
+                        <label for="searchText">Search movies</label>
+                    </div>
+                    <button id="searchMovie" class="btn btn-light saveButton" type="button">Search</button>
+                    <button type="button" class="btn btn-light clearButton">Clear Results</button>
+                </form>   
+            </div>
+            <div id="msg">
+                <h6></h6>
+            </div>
+            <div class="container">
+                    <div id ="movies" class="row"></div>  
+                    </div>             
+            </div>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
