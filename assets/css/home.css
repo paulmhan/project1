@@ -16,29 +16,29 @@ body {
 }
 
 #fork-spoon {
-    height: 200px;
-    width: 200px;
+    height: 150px;
+    width: 150px;
     position: relative;
-    left: 40px;
+    left: 70px;
 }
 
 #film {
-    height: 200px;
-    width: 200px;
+    height: 150px;
+    width: 150px;
     position: relative;
-    left: 40px;
+    left: 70px;
 }
 
 #heart-rate {
-    height: 200px;
-    width: 200px;
+    height: 150px;
+    width: 150px;
     position: relative;
-    left: 40px;
+    left: 70px;
 }
 
 #fork-spoon:hover, #film:hover, #heart-rate:hover {
-    height: 210px;
-    width: 210px;
+    height: 160px;
+    width: 160px;
 }
 
 h2, h4,  h5, #fork-spoon, #film, #heart-rate {
