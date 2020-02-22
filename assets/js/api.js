@@ -14,7 +14,7 @@ $(document).ready(function () {
   let dietOptions = $(".dietOptions");
   // on window load, remove the search results div
   $(window).on('load', function () {
-    // $('#searchResults').remove();
+    $('#searchResults').hide();
   });
   // function to create rows for the recipe search results based on the response
   function createRow(response, i) {
@@ -44,18 +44,18 @@ $(document).ready(function () {
 
   clearButton.on("click", function (event) {
     $('#input-fields').show();
-    $('#searchResults').empty();
-    $('#searchResults').remove();
+    $('#searchResults').hide();
     $('#searchTerm').val("");
-    $('#msg').empty();
-    $('#msg').remove();
+    $('#msg').text("");
     $('.select-dropdown').val('');
+    $("tbody").empty();
   });
 
   // function to execute on clicking the search button
   search.on("click", function (event) {
     event.preventDefault();
     $('#searchResults').show();
+    $("tbody").empty();
     // get the value of the search keyword entered
     let searchKey = searchTerm.val().trim();
     // get the value of the diet options selected
