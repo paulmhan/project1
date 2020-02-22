@@ -1,130 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
-
+​
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>RecipeSearch</title>
+    <title>Home</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/home.css">
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/021ad2054d.js" crossorigin="anonymous"></script>
 </head>
-
+​
 <body>
     <div class="container">
-
-        <nav>
-            <div class="nav-wrapper">
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="home.html">Home</a></li>
-                    <li><a href="index.html">Recipe Search</a></li>
-                    <li><a href="movie.html">Movie Search</a></li>
-                    <li><a href="bmi.html">Calorie Tracker</a></li>
-                </ul>
+        
+            <div class="navbar">
+                
+                    
+                    <a href="home.html"><p class="nav-element">Recipe Search</p></a>
+                    <a href="movie.html"><p class="nav-element">Movie Search</p></a>
+                    <a href="bmi.html"><p class="nav-element">Calorie Tracker</p></a>
+               
             </div>
-        </nav>
-
-        <h1 id="header">Hungry? You Are at the Right Place!</h1>
-
-        <div class="card">
-            <div class="row card-title ">
-                <div class="col s12">
-                    Choose One or More Methods for Searching:
-                </div>
-                <div class="row">
-                    <p id="msg"></p>
-                </div>
+        
+​
+        <div class="row">
+​
+            <div class="col s12">
+                <h2>Welcome to Feast, Film, and Fitness!</h2>
             </div>
-            <div class="card-content input-fields">
-                <form>
-                    <div class="input-field">
-                        <input type="text" class="validate" id="searchTerm">
-                        <label for="searchTerm">Type the search word for the recipes you are starving for. For example
-                            chicken, potato,  basil etc</label>
-
-                    </div>
-
-                    <br>
-
-                    <div class="input-field">
-                        <select multiple id="multi" class="dietOptions">
-                            <option value="balanced">Balanced</option>
-                            <option value="high-fiber">High-Fiber</option>
-                            <option value="high-protein">High-Protein</option>
-                            <option value="low-carb">Low-Carb</option>
-                            <option value="low-fat">Low-Fat</option>
-                            <option value="low-sodium">Low-Sodium</option>
-                        </select>
-                        <label id="dietOptionsLabel">Diet Options:</label>
-                    </div>
-
-                    <br>
-
-                    <div class="input-field">
-                        <select multiple id="multi2" class="healthOptions">
-                            <option value="dairy-free">Dairy-free</option>
-                            <option value="gluten-free">Gluten-free</option>
-                            <option value="keto">Keto</option>
-                            <option value="kosher">Kosher</option>
-                            <option value="paleo">Paleo</option>
-                            <option value="peanut-free">Peanut-free</option>
-                            <option value="pescatarian">Pescatarian</option>
-                            <option value="pork-free">Pork-free</option>
-                            <option value="shelfffish-free">Shellfish-free</option>
-                            <option value="vegan">Vegan</option>
-                            <option value="vegetarian">Vegetarian</option>
-                            <option value="wheat-free">Wheat-free</option>
-                        </select>
-                        <label>Health Options:</label>
-                    </div>
-
-                    <br>
-
-                    <input id="search" class="btn btn-light saveButton" type="submit" value="Search">
-                    <button type="button" class="btn btn-light clearButton">Clear Results</button>
-                </form>
-                <hr>
-
+          
+        </div>
+​
+​
+​
+        <div class="row icons">
+            <div class="col s4">
+                <a href="home.html"><img id="fork-spoon" src="assets/images/fork-spoon.png" alt="eat-icon"></a>
             </div>
-            <div class="row" id="searchResults">
-                <div class="col s12">
-                    <h4>Recipe search results</h4>
-                </div>
-
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Image</th>
-                            <th scope="col"># of servings</th>
-                            <th scope="col">Title</th>
-                            <th scope="col">Energy (Kcal)</th>
-                            <th scope="col">Nutrients</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <!-- Insert additional recipe rows here -->
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="col s4">
+                <a href="movie.html"><img id="film" src="assets/images/film-icon.png" alt="film-icon"></a>
+            </div>
+            <div class="col s4">
+                <a href="bmi.html"><img id="heart-rate" src="assets/images/heart-rate.png" alt="heart-icon"></a>
             </div>
         </div>
-
+​
+        <div class="row icon-titles">
+            <div class="col s4">
+                <h4>Eat.</h4>
+                <br>
+                <p class="icon-descrip">Choose a healthy meal option that suits your dietary needs from our recipe search engine!</p>
+            </div>
+            <div class="col s4">
+                <h4>Watch.</h4>
+                <br>
+                <p class="icon-descrip">Then, choose an old favorite or a new experience to watch with our movie search database!</p>
+            </div>
+            <div class="col s4">
+                <h4>Watch What You Eat.</h4>
+                <br>
+                <p class="icon-descrip">Finally, to make sure you're meeting your dietary needs, track your meals and caloric intake with our calorie tracker!</p>
+            </div>
+        </div>
+​
+        <br>
+​
+        <div class="row">
+            <div class="col s4">
+​
+            </div>
+            <div class="col s4">
+                <a href="home.html" id="get-started" class="waves-effect waves-light btn-large">Not sure where to
+                    start? Click here!</a>
+            </div>
+            <div class="col s4">
+​
+            </div>
+        </div>
+​
+        <br>
+​
+        <div class="row">
+            <div class="col s12">
+                <footer>
+                    <h6>Made by: Paul Han, Suneetha Burla, and James Geib</h6>
+                </footer>
+            </div>
+        </div>
+​
+​
     </div>
+​
 
-
-    
-
-
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="./assets/js/api.js"></script>
-    
-
 </body>
-
+​
 </html>
+

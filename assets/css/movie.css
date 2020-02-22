@@ -22,7 +22,7 @@
         height: 70%;
     }
     body {
-        background-image: url("../images/popcorn-backdrop.webp");
+        /* background-image: url("../images/popcorn-backdrop.webp"); */
         background-size: 100%;
     }
     .content-body {
